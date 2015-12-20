@@ -4,6 +4,7 @@
   "description": "A simple project template for Redux and React client development.",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --port 8010",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
     "prod": "webpack --config webpack.production.config.js"
