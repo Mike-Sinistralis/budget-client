@@ -10,7 +10,6 @@
 
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Nav from './Navigation';
 
 var Dashboard = React.createClass({
   render: function() {

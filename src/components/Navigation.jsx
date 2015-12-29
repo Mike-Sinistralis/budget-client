@@ -8,11 +8,16 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Image } from 'react-bootstrap';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 var bgcolor = {
     backgroundColor: '#272729'
+}
+
+var profileImageHeightWidth = {
+    height: '22px',
+    width: '19px'
 }
 
 var Navigation = React.createClass({    
@@ -32,6 +37,7 @@ var Navigation = React.createClass({
       <Nav pullRight>
         <NavItem eventKey={2} href="#/history">Saved: $400.12</NavItem>
         <NavItem eventKey={3} href="#/account">barric.reed</NavItem>
+        <NavItem href="#/account"><Image style={profileImageHeightWidth} src="profile.JPG" rounded /></NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
