@@ -10,9 +10,13 @@ var config = {
   module: {
     loaders: [{
       test: /\.jsx$/,
-
       exclude: [node_modules_dir],
       loader: 'babel'
+    },
+    {
+      test: /\.js$/,
+      exclude: [node_modules_dir],
+      loader: 'babel'        
     }]
   },
   resolve: {

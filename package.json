@@ -1,15 +1,15 @@
 {
-  "name": "reactReduxReady",
-  "version": "1.0.0",
-  "description": "A simple project template for Redux and React client development.",
+  "name": "iCountantClient",
+  "version": "0.1.0",
+  "description": "Simple iCountant Client App",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --port 8010",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "prod": "webpack --config webpack.production.config.js"
+    "start": "webpack --config webpack.production.config.js"
   },
-  "author": "Michael Zimmerman",
+  "author": "Barric Reed & Mike zimmerman",
   "license": "Apache 2.0",
   "devDependencies": {
     "babel-core": "^6.3.17",
@@ -30,12 +30,16 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "ember": "^0.9.8",
+    "history": "^1.17.0",
     "immutable": "^3.7.5",
     "react": "^0.14.3",
     "react-addons-pure-render-mixin": "^0.14.3",
+    "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
     "react-router": "^1.0.0-rc3"
+  },
+  "engines": {
+      "node": "4.2.2"
   },
   "babel": {
     "presets": [

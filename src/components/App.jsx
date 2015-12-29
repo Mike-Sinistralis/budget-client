@@ -1,12 +1,15 @@
+/* App Components
+  ---------------
+  1. [Top] Header - Nav Bar
+*/
+
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {List} from 'immutable';
-
-const pair = List.of('Trainspotting', '28 Days Later');
+import Nav from './Navigation';
 
 var App = React.createClass({
   render: function() {
-    return React.cloneElement(this.props.children, {pair: pair})
+    return <div className="appComponent"> <Nav /> {this.props.children} </div>;
   }
 });
 
