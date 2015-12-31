@@ -4,11 +4,10 @@
   "description": "Simple iCountant Client App.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --port 8010",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.@(js|jsx)\"",
+    "dev": "node ./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+    "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "start:build": "webpack --config webpack.production.config.js",
-    "start": "webpack --config webpack.production.config.js"
+    "build": "node ./node_modules/webpack/bin/webpack.js --config webpack.production.config.js"
   },
   "author": "Barric Reed & Mike Zimmerman",
   "license": "Apache 2.0",
@@ -36,7 +35,8 @@
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
     "react-router": "^1.0.0-rc3",
-    "redux": "^3.0.5"
+    "redux": "^3.0.5",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": "4.2.2"
