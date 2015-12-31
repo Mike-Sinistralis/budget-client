@@ -1,11 +1,13 @@
-function mapStateToProps(state) {
+function mapAllStateToProps(state) {
   return {
-    todayRate: -10,
-    routineRate: 40,
-    netRate: todayRate + routineRate
+    user: state.get('user'),
+    name: state.get('name'),
+    description: state.get('description'),
+    routine: state.get('routine'),
+    nonroutine: state.get('non-routine')
   };
 }
 
 module.exports = {
-  mapStateToProps: mapStateToProps
+  mapAllStateToProps: mapAllStateToProps
 };

@@ -4,7 +4,7 @@
   "description": "Simple iCountant Client App.",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+    "dev": "node ./node_modules/webpack/bin/webpack.js --config webpack.config.js && webpack-dev-server --port 8010",
     "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
     "build": "node ./node_modules/webpack/bin/webpack.js --config webpack.production.config.js"
@@ -31,6 +31,7 @@
   "dependencies": {
     "history": "^1.17.0",
     "immutable": "^3.7.5",
+    "moment": "2.10.6",
     "react": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
