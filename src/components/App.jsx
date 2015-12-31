@@ -5,12 +5,12 @@
 
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Nav from './Navigation';
+import Nav from './common/Navigation';
 
 var App = React.createClass({
   render: function() {
-    return <div className="appComponent"> <Nav /> {this.props.children} </div>;
+    return <div className="appMain"> <Nav /> {this.props.children} </div>;
   }
 });
 
-export default App
+export default App;

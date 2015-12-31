@@ -1,7 +1,7 @@
 {
   "name": "iCountantClient",
   "version": "0.1.0",
-  "description": "Simple iCountant Client App",
+  "description": "Simple iCountant Client App.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --port 8010",
@@ -31,24 +31,13 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
-    "babel-core": "^6.3.17",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13",
-    "chai": "^3.4.1",
-    "chai-immutable": "^1.5.3",
-    "install": "^0.4.1",
-    "jsdom": "^7.2.1",
-    "mocha": "^2.3.4",
-    "redux": "^3.0.5",
     "history": "^1.17.0",
     "immutable": "^3.7.5",
     "react": "^0.14.3",
     "react-addons-pure-render-mixin": "^0.14.3",
     "react-bootstrap": "^0.28.1",
     "react-dom": "^0.14.3",
-    "react-router": "^1.0.0-rc3",
-    "webpack": "^1.12.9"
+    "react-router": "^1.0.0-rc3"
   },
   "engines": {
       "node": "4.2.2"

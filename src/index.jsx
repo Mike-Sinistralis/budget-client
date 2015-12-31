@@ -6,7 +6,7 @@ import {createStore} from 'redux';
 import {List,Map} from 'immutable';
 import reducer from './reducer';
 import App from './components/App';
-import Login from './components/Login';
+import Login from './components/common/Login';
 import Dashboard from './components/Dashboard';
 
 const budget = Map({
