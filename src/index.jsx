@@ -3,27 +3,17 @@
   Entry-point for client
 */
 
-/* node_module imports */
+/* node imports */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Router, { Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-/* budget-client Custom Components */
-import reducer from './reducer';
+/* budget-client Custom */
+import { store } from './store';
 import App from './components/App';
-import Login from './components/common/Login';
+import Login from './components/Login';
 import Dashboard from './components/Dashboard';
-
-/* Create redux store using example data set */
-/* Update once DB is built */
-import { budget01 } from './components/common/utils/ExampleDataSets';
-const store = createStore(reducer);
-store.dispatch({
-   type: 'SET_STATE',
-   state: {budget01}
-});
 
 const routes = <Route component={App}>
     <Route path="/" component={Login} />
@@ -32,7 +22,7 @@ const routes = <Route component={App}>
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>{routes}</Router>
+        <Router routes={routes}/>
     </Provider>,
     document.getElementById('app')
 );

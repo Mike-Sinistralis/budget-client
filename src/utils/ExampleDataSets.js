@@ -1,6 +1,6 @@
 import { List, Map } from 'immutable';
 
-const budget01 = Map({
+const budget = Map({
     "user" : "barric.reed",
     "name" : "Barric's Budget",
     "description" : "This is Barric's test budget",
@@ -47,5 +47,5 @@ const budget01 = Map({
 });
 
 module.exports = {
-  budget01: budget01
+  budget: budget
 };

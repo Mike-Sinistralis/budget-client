@@ -4,8 +4,7 @@
 */
 
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Nav from './common/Navigation';
+import Nav from './Navigation';
 
 var App = React.createClass({
   render: function() {

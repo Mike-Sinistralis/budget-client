@@ -10,9 +10,8 @@
 */
 
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
-import { BudgetChart, DailySpend, DailyTransactions, RoutineTransactions } from './common/Panels';
+import { BudgetChart, DailySpend, DailyTransactions, RoutineTransactions } from './Panels';
 
 var dashStyle = {
   textAlign: 'center'

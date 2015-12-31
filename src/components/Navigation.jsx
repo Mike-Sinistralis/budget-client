@@ -9,7 +9,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, Image, Grid, Row, Col } from 'react-bootstrap';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 var bgcolor = {
     backgroundColor: '#272729'

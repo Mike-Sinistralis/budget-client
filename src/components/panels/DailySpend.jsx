@@ -6,10 +6,9 @@
 */
 
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../utils/mapStateToProps';
+import { mapStateToProps } from '../../utils/mapStateToProps';
 
 const dsgrid = (
   <Panel>
@@ -22,7 +21,6 @@ const dsgrid = (
 
 /* Pure Component */
 const DailySpend = React.createClass({
-  mixins: [PureRenderMixin],
   render: function() {
     return dsgrid;
   }
@@ -33,4 +31,4 @@ const DailySpend = React.createClass({
 
 module.exports = {
   DailySpend: DailySpend
-}
+};

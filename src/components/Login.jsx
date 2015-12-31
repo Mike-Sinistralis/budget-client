@@ -6,7 +6,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Input, ButtonInput, Grid, Row, Col } from 'react-bootstrap';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 const loginGrid = (
   <Grid>
