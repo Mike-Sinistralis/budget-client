@@ -19,4 +19,6 @@ var BudgetChart = React.createClass({
   }
 });
 
-export default BudgetChart;
+module.exports = {
+  BudgetChart: BudgetChart
+};

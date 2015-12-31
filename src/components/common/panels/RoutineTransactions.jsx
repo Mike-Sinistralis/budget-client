@@ -19,4 +19,6 @@ var RoutineTransactions = React.createClass({
   }
 });
 
-export default RoutineTransactions;
+module.exports = {
+  RoutineTransactions: RoutineTransactions
+};

@@ -19,4 +19,6 @@ var DailyTransactions = React.createClass({
   }
 });
 
-export default DailyTransactions;
+module.exports = {
+  DailyTransactions: DailyTransactions
+};

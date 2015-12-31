@@ -1,4 +1,4 @@
-function mapStateToProps(state) {
+function mapDispatchToProps(state) {
   return {
     todayRate: -10,
     routineRate: 40,
@@ -7,5 +7,5 @@ function mapStateToProps(state) {
 }
 
 module.exports = {
-  mapStateToProps: mapStateToProps
+  mapDispatchToProps: mapDispatchToProps
 };

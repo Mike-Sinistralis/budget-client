@@ -11,20 +11,26 @@ import { Panel, Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { mapStateToProps } from '../utils/mapStateToProps';
 
+const dsgrid = (
+  <Panel>
+    <Grid fluid={true}>
+      <Row>netRate</Row>
+      <Row>todayRate | routineRate</Row>
+    </Grid>
+  </Panel>
+);
+
 /* Pure Component */
-export const DailySpend = React.createClass({
+const DailySpend = React.createClass({
   mixins: [PureRenderMixin],
   render: function() {
-    return (
-      <Panel>
-        <Grid fluid={true}>
-          <Row>{this.props.netRate}</Row>
-          <Row>{this.props.todayRate} | this.props.routineRate</Row>
-        </Grid>
-      </Panel>
-    );
+    return dsgrid;
   }
 });
 
 /* Connected Component */
-export const DailySpendContainer = connect(mapStateToProps)(DailySpend);
+//export const DailySpendContainer = connect(mapStateToProps)(DailySpend);
+
+module.exports = {
+  DailySpend: DailySpend
+}
