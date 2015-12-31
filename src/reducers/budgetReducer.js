@@ -12,6 +12,4 @@ function budgetReducer(state = Map(), action) {
     return state;
 }
 
-module.exports = {
-  budgetReducer: budgetReducer
-};
+export {budgetReducer};
