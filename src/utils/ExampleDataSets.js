@@ -1,6 +1,9 @@
 import { List, Map } from 'immutable';
+import moment from 'moment';
 
-const budget = Map({
+var dateFormat = "YYYY-MM-D";
+
+const budget1 = Map({
     "user" : "barric.reed",
     "name" : "Barric's Budget",
     "description" : "This is Barric's test budget",
@@ -9,7 +12,10 @@ const budget = Map({
             "name": "Accenture Paycheck",
             "description": "2x month pay from Accenture",
             "type": "Salary",
-            "timestamp": Date(),
+            "createdOn": moment(),
+            "startOn": moment().format(dateFormat),
+            "endOn": moment().add(1,'M'),
+            "duration": "One month, placeholder",
             "amount": 4600.0,
             "frequency": 2,
             "frequencyDescription": "Twice a month -> 2*amount / # days in month",
@@ -19,7 +25,10 @@ const budget = Map({
             "name": "Rent",
             "description": "2x month pay from Accenture",
             "type": "Rent",
-            "timestamp": Date(),
+            "createdOn": moment(),
+            "startOn": moment().format(dateFormat),
+            "endOn": moment().add(1,'Y'),
+            "duration": "One year, placeholder",
             "amount": -1350.0,
             "frequency": 1,
             "frequencyDescription": "Once a month -> amount / # days in month",
@@ -31,7 +40,8 @@ const budget = Map({
             "name": "Coffee",
             "description": "Starbucks",
             "type": "Coffee",
-            "timestamp": Date(),
+            "createdOn": moment(),
+            "startOn": moment().format(dateFormat),
             "amount": -2.50,
             "accounting": "debit"
         }),
@@ -39,7 +49,8 @@ const budget = Map({
             "name": "Lottery",
             "description": "Scratcher",
             "type": "Lottery",
-            "timestamp": Date(),
+            "createdOn": moment(),
+            "startOn": moment().format(dateFormat),
             "amount": 5.0,
             "accounting": "credit"
         })
@@ -47,5 +58,5 @@ const budget = Map({
 });
 
 module.exports = {
-  budget: budget
+  budget1: budget1
 };

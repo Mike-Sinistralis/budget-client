@@ -4,15 +4,16 @@
 */
 
 import * as reduxApi from 'redux';
-import budgetReducer from './reducers/budgetReducer';
-import { budget } from './utils/ExampleDataSets';
+import { budgetReducer } from './reducers/budgetReducer';
+import { budget1 as budget } from './utils/ExampleDataSets';
 
 const store = reduxApi.createStore(budgetReducer);
 store.dispatch({
    type: 'SET_STATE',
-   state: {budget}
+   state: budget
 });
 
 module.exports = {
-  store: store
+  store: store,
+  state: store.getState()
 };
