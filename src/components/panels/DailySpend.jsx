@@ -8,27 +8,25 @@
 import React from 'react';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { mapStateToProps } from '../../utils/mapStateToProps';
-
-const dsgrid = (
-  <Panel>
-    <Grid fluid={true}>
-      <Row>netRate</Row>
-      <Row>todayRate | routineRate</Row>
-    </Grid>
-  </Panel>
-);
+import { mapAllStateToProps } from '../../utils/mapStateToProps';
 
 /* Pure Component */
 const DailySpend = React.createClass({
   render: function() {
-    return dsgrid;
+    return (
+      <Panel>
+        <Grid fluid={true}>
+          <Row>{this.props.name}</Row>
+          <Row>netRate</Row>
+          <Row>todayRate | routineRate</Row>
+        </Grid>
+      </Panel>);
   }
 });
 
 /* Connected Component */
-//export const DailySpendContainer = connect(mapStateToProps)(DailySpend);
+const DailySpendContainer = connect(mapAllStateToProps)(DailySpend);
 
 module.exports = {
-  DailySpend: DailySpend
+  DailySpendContainer: DailySpendContainer
 };

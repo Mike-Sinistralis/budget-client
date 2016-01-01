@@ -11,7 +11,7 @@
 
 import React from 'react';
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
-import { BudgetChart, DailySpend, DailyTransactions, RoutineTransactions } from './Panels';
+import { BudgetChart, DailySpendContainer, DailyTransactions, RoutineTransactions } from './Panels';
 
 var dashStyle = {
   textAlign: 'center'
@@ -22,7 +22,7 @@ const dashboardGrid = (
     <Row className="alertRow"></Row>
     <Row className="summarychartRow">
       <Col xs={0} md={1} />
-      <Col xs={10} xsOffset={1} md={5} mdOffset={0}><DailySpend /></Col>
+      <Col xs={10} xsOffset={1} md={5} mdOffset={0}><DailySpendContainer /></Col>
       <Col xs={10} xsOffset={1} md={5} mdOffset={0}><BudgetChart /></Col>
       <Col xs={0} md={1} />
     </Row>
