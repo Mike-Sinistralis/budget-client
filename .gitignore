@@ -5,3 +5,5 @@ prod/bundle.js
 node_modules
 *.env
 src/es5-compiled-scripts
+*-tests.
+*-tests.
