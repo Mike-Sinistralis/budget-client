@@ -30,7 +30,7 @@ var Navigation = React.createClass({
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="#/dashboard">Home</NavItem>
+        <NavItem eventKey={1} href="#/dashboard">Dashboard</NavItem>
         <NavItem eventKey={1} href="#/history">History</NavItem>
       </Nav>
       <Nav pullRight>

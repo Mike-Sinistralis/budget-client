@@ -10,7 +10,7 @@ import Router, { Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 
 /* budget-client Custom */
-import { store } from './store';
+import { store, state } from './store';
 import App from './components/App';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
