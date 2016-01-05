@@ -30,6 +30,10 @@ function dateRangeCheck(s,e,d) {
   return moment.range(moment(s), moment(e)).contains(moment(d));
 }
 
+function getDailyRate(amount,frequency,day) {
+  return (amount * frequency) / moment(day).daysInMonth();
+}
+
 /* Mappers for budget objects */
 
 /* mapRoutine
@@ -118,6 +122,7 @@ function mapNonRoutineRange(nr,s,e){
 module.exports = {
   dateFormat: dateFormat,
   validateArg: validateArg,
+  getDailyRate: getDailyRate,
   dateRangeCheck: dateRangeCheck,
   mapRoutine: mapRoutine,
   mapNonRoutine: mapNonRoutine,

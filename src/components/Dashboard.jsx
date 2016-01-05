@@ -1,44 +1,30 @@
-/* Dashboard Components
-  ---------------
-  Note: [Location, Q = Quadrant]
-  Note: May want to move each component to its own .jsx
-  1. [Q2] Daily Spend Panel (using Papers as tiles)
-  2. [Q1] Chart Panel (w/ 1D, 1W, 1M, 3M, 6M, 1Y, ALL)
-  3. [Q3] Daily Transaction Panel
-  4. [Q4] Routine Transaction Panel
-  Reference layout excel for grid layout
-*/
+// Dashboard.jsx
 
 import React from 'react';
+import { connect } from 'react-redux';
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
-import { BudgetChart, DailySpendContainer, DailyTransactions, RoutineTransactions } from './Panels';
+import { BudgetChart } from './BudgetChart';
+import { DailySpend } from './DailySpend';
+import { NonroutineSpend } from './NonroutineSpend';
+import { RoutineSpend} from './RoutineSpend';
+import { mapAllStateToProps } from '../utils/mapStateToProps';
 
 var dashStyle = {
   textAlign: 'center'
 };
 
-const dashboardGrid = (
-  <Grid style={dashStyle} fluid={false}>
-    <Row className="alertRow"></Row>
-    <Row className="summarychartRow">
-      <Col xs={0} md={1} />
-      <Col xs={10} xsOffset={1} md={5} mdOffset={0}><DailySpendContainer /></Col>
-      <Col xs={10} xsOffset={1} md={5} mdOffset={0}><BudgetChart /></Col>
-      <Col xs={0} md={1} />
-    </Row>
-    <Row className="transactionRow">
-      <Col xs={0} md={1} />
-      <Col xs={10} xsOffset={1} md={5} mdOffset={0}><DailyTransactions /></Col>
-      <Col xs={10} xsOffset={1} md={5} mdOffset={0}><RoutineTransactions /></Col>
-      <Col xs={0} md={1} />
-    </Row>
-  </Grid>
-);
-
 var Dashboard = React.createClass({
   render: function() {
-    return dashboardGrid;
+    return (
+      <Grid style={dashStyle} fluid={false}>
+        <Row className="alertRow"></Row>
+        <Row className="dailySpend"><DailySpend netToday = {this.props.netToday} nonroutineToday = {this.props.nonroutineToday} routineToday={this.props.routineToday} /></Row>
+        <Row className="budgetChart"><BudgetChart /></Row>
+        <Row className="nonroutineSpend"><NonroutineSpend nonroutine={this.props.nonroutine} today={this.props.today}/></Row>
+        <Row className="routineSpend"><RoutineSpend routine={this.props.routine} /></Row>
+      </Grid>
+    );
   }
 });
 
-export default Dashboard;
+export default connect(mapAllStateToProps)(Dashboard);

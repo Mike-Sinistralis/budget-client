@@ -6,10 +6,13 @@
 import React from 'react';
 import Nav from './Navigation';
 
-var App = React.createClass({
+export default React.createClass({
   render: function() {
-    return <div className="appMain"> <Nav /> {this.props.children} </div>;
+    return (
+      <div className="app">
+        <Nav />
+        {this.props.children}
+      </div>
+    );
   }
 });
-
-export default App;

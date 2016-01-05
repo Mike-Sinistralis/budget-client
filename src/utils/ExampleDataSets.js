@@ -2,8 +2,10 @@
   ---------------
   Note: Using non-ES6 for ease of importing.
 */
+var immutable = require('immutable');
 var moment = require('moment');
 var utils = require('./utils');
+var uuid = require('node-uuid');
 var dateFormat = utils.dateFormat;
 var d = moment().format(dateFormat.daily);
 
@@ -11,6 +13,7 @@ var d = moment().format(dateFormat.daily);
 var budget1Day = "2015-11-14";
 var budget1 = {
     "user" : "barric.reed",
+    "id" : uuid.v4(),
     "name" : "Barric's Budget",
     "description" : "This is Barric's test budget",
     "sums" : {
@@ -59,6 +62,7 @@ var budget1 = {
     },
     "routine" : [
         {
+            "id" : uuid.v4(),
             "name": "Accenture Paycheck",
             "description": "2x month pay from Accenture",
             "type": "Salary",
@@ -73,8 +77,9 @@ var budget1 = {
             "accounting": "credit"
         },
         {
+            "id" : uuid.v4(),
             "name": "Rent",
-            "description": "2x month pay from Accenture",
+            "description": "Rent - Brooklyn",
             "type": "Rent",
             "active": true,
             "createdOn": moment("2015-11-10"),
@@ -87,8 +92,9 @@ var budget1 = {
             "accounting": "debit"
         },
         {
+            "id" : uuid.v4(),
             "name": "Rent",
-            "description": "2x month pay from Accenture",
+            "description": "Rent - Upstate",
             "type": "Rent",
             "active": false,
             "createdOn": moment("2014-11-10"),
@@ -104,6 +110,7 @@ var budget1 = {
     "nonroutine" : {
       '2015-11-14' : [
         {
+          "id" : uuid.v4(),
           "name": "Coffee",
           "description": "Starbucks",
           "type": "Coffee",
@@ -114,6 +121,7 @@ var budget1 = {
           "accounting": "debit"
         },
         {
+          "id" : uuid.v4(),
           "name": "Lottery",
           "description": "Scratcher",
           "type": "Lottery",
@@ -124,6 +132,7 @@ var budget1 = {
           "accounting": "credit"
         },
         {
+          "id" : uuid.v4(),
           "name": "Coffee",
           "description": "Stauf's",
           "type": "Lottery",
@@ -137,36 +146,76 @@ var budget1 = {
     }
 };
 
-function createDebitNR(d) {
-  return  {
-            "name": "RandomlyGenerated",
-            "description": "Starbucks",
-            "type": "Coffee",
+function createCreditR(d) {
+  const id = uuid.v4();
+  return  immutable.Map({
+            "id" : id,
+            "name": "Random - " + id,
+            "description": id,
+            "type": "Random",
             "active": true,
             "createdOn": moment(d),
             "startOn": d,
-            "amount": -1*Math.floor((Math.random() * 10) + 1),
+            "endOn": moment(d).add(1,'Y'),
+            "duration": "1 Year",
+            "amount": 4600.0,
+            "frequency": 2,
+            "frequencyDescription": "2x Month: 2*amount / # days in month",
+            "accounting": "credit"
+          });
+}
+
+function createRoutine(d) {
+  const id = uuid.v4();
+  let amount = Math.floor((Math.random() * 1000)*Math.random()*3);
+  if (amount % 2 === 0) {amount = amount * -1;}
+  return  immutable.Map({
+            "id" : id,
+            "name": "Random - " + id,
+            "description": id,
+            "type": "Random",
+            "active": true,
+            "createdOn": moment(d),
+            "startOn": d,
+            "endOn": moment(d).add(1,'Y'),
+            "duration": "1 Year",
+            "amount": amount,
+            "frequency": Math.floor((Math.random() * 4)+1),
+            "frequencyDescription": "2x Month: 2*amount / # days in month",
+            "accounting": "credit"
+          });
+}
+
+function createNonRoutine(d) {
+  const id = uuid.v4();
+  let amount = Math.floor((Math.random() * 100));
+  if (amount % 2 === 0) {amount = amount * -1;}
+  return  {
+            "id" : id,
+            "name": "Random Debit - " + id,
+            "description": "Random Debit",
+            "type": "Random Debit",
+            "active": true,
+            "createdOn": moment(d),
+            "startOn": d,
+            "amount": amount,
             "accounting": "debit"
           };
 }
 
-function createCreditNR(d) {
-  return  {
-            "name": "RandomlyGenerated",
-            "description": "Starbucks",
-            "type": "Coffee",
-            "active": true,
-            "createdOn": moment(d),
-            "startOn": d,
-            "amount": Math.floor((Math.random() * 10) + 1),
-            "accounting": "credit"
-          };
+budget1.nonroutine[d] = [];
+
+for (let i = 0; i < Math.floor(Math.random()*15); i++) {
+    budget1.nonroutine[d].push(createNonRoutine(d));
 }
 
-budget1.nonroutine[d] = [createDebitNR(d), createCreditNR(d)];
-console.log(budget1.nonroutine[d]);
+for (let i = 0; i < Math.floor(Math.random()*10); i++) {
+    budget1.routine.push(createRoutine(d));
+}
 
 module.exports = {
   budget1: budget1,
-  budget1Day: budget1Day
+  budget1Day: budget1Day,
+  createRoutine: createRoutine,
+  createNonRoutine: createNonRoutine
 };

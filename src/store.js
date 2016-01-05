@@ -1,13 +1,19 @@
 /* store.js
-  ---------------
-  Create and manage store
+
+state:
+  user
+  auth
+  budget
+
 */
 
 import * as reduxApi from 'redux';
-import { budgetReducer } from './reducers/budgetReducer';
+import reducer from './reducers/reducer';
 import { budget1 as budget } from './utils/ExampleDataSets';
 
-const store = reduxApi.createStore(budgetReducer);
+const store = reduxApi.createStore(reducer);
+
+/* To be replaced */
 store.dispatch({
    type: 'SET_STATE',
    state: budget
