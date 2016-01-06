@@ -1,13 +1,14 @@
 {
-  "name": "iCountantClient",
+  "name": "budget-client",
   "version": "0.1.0",
-  "description": "Simple iCountant Client App.",
+  "description": "Simple Budget Client App.",
   "main": "index.js",
   "scripts": {
     "dev": "node ./node_modules/webpack/bin/webpack.js --config webpack.config.js && webpack-dev-server --port 8010",
     "test": "node ./node_modules/mocha/bin/mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch",
-    "build": "node ./node_modules/webpack/bin/webpack.js --config webpack.production.config.js"
+    "build": "node ./node_modules/webpack/bin/webpack.js --config webpack.production.config.js",
+    "build:surge": "node ./node_modules/webpack/bin/webpack.js --config webpack.production.config.js && surge ./dist --domain andcounting.surge.sh"
   },
   "author": "Barric Reed & Mike Zimmerman",
   "license": "Apache 2.0",
