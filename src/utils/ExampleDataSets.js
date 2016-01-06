@@ -82,6 +82,8 @@ function createNonRoutine(d) {
 }
 
 budget1.nonroutine[d] = [];
+budget1.nonroutine[d].push(createNonRoutine(d));
+budget1.routine.push(createRoutine(d));
 
 for (let i = 0; i < Math.floor(Math.random()*15+1); i++) {
     budget1.nonroutine[d].push(createNonRoutine(d));
