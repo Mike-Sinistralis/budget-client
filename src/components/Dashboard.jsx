@@ -18,7 +18,7 @@ var Dashboard = React.createClass({
     return (
       <Grid style={dashStyle} fluid={false}>
         <Row className="alertRow"></Row>
-        <Row className="dailySpend"><DailySpend netToday = {this.props.netToday} nonroutineToday = {this.props.nonroutineToday} routineToday={this.props.routineToday} /></Row>
+        <Row className="dailySpend"><DailySpend netToday={this.props.netToday} nonroutineToday = {this.props.nonroutineToday} routineToday={this.props.routineToday} /></Row>
         <Row className="budgetChart"><BudgetChart /></Row>
         <Row className="nonroutineSpend"><NonroutineSpend nonroutine={this.props.nonroutine} today={this.props.today}/></Row>
         <Row className="routineSpend"><RoutineSpend routine={this.props.routine} /></Row>

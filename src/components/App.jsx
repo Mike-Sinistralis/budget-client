@@ -1,10 +1,8 @@
-/* App Components
-  ---------------
-  1. [Top] Header - Nav Bar
-*/
+// App.jsx
 
 import React from 'react';
 import Nav from './Navigation';
+import Footer from './Footer';
 
 export default React.createClass({
   render: function() {
@@ -12,6 +10,7 @@ export default React.createClass({
       <div className="app">
         <Nav />
         {this.props.children}
+        <Footer />
       </div>
     );
   }

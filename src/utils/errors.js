@@ -7,13 +7,4 @@ class NotFoundError extends Error {
     }
 }
 
-class ForbiddenError extends Error {
-    constructor(msg) {
-        super(msg);
-        this.message = msg || 'Forbidden';
-        this.status = 403;
-        Error.captureStackTrace(this);
-    }
-}
-
-export default { UnauthorizedError, BadRequestError };
+export default { NotFoundError };

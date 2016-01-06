@@ -63,4 +63,5 @@ Front-end can be seen [here.](http://andcounting.surge.sh/#/?_k=o0a7df)
 - [ ] Structure alerts sub-component to handle alerts / ops messages from Ops/Alerting
 
 **Footer**
-- [ ] Create footer
+- [x] Create footer
+- [ ] Convert footer into [stick footer](http://getbootstrap.com/examples/sticky-footer-navbar/)

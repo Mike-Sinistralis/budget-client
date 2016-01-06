@@ -35,7 +35,7 @@ var Navigation = React.createClass({
       <Nav pullRight>
         <NavItem eventKey={2} href="#/dashboard">Saved: $400.12</NavItem>
         <NavItem eventKey={3} href="#/account">barric.reed</NavItem>
-        <NavItem href="#/account"><Image style={profileImageHeightWidth} src="profile.JPG" rounded /></NavItem>
+        <NavItem href="#/account"><Image style={profileImageHeightWidth} src="profile.jpg" rounded /></NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>;
