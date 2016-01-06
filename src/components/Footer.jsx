@@ -3,6 +3,11 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 
+const footerPadding = {
+  paddingLeft: "17%",
+  paddingRight: "17%"
+};
+
 const leftSpan = {
   paddingLeft: "5%"
 };
@@ -16,7 +21,7 @@ const rightSpan = {
 export default class Footer extends React.Component {
   render() {
     return (
-      <footer>
+      <footer style={footerPadding}>
         <hr />
         <p>
           <span style={leftSpan}>© &Counting </span>
