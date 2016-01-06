@@ -1,9 +1,9 @@
 *.log
-dist/bundle.js
+*bundle.js
 dist/bundle.js.map
-prod/bundle.js
-node_modules
 *.env
-src/es5-compiled-scripts
 *tests.js
 *tests.jsx
+*.csv
+node_modules
+src/utils/csv-to-json

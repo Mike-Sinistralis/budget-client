@@ -24,7 +24,7 @@ var Navigation = React.createClass({
     return   <Navbar style={bgcolor} staticTop={true} inverse>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#">iCountant</a>
+        <a href="#">&Counting</a>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>

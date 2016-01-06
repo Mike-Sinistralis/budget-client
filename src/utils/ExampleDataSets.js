@@ -16,133 +16,11 @@ var budget1 = {
     "id" : uuid.v4(),
     "name" : "Barric's Budget",
     "description" : "This is Barric's test budget",
-    "sums" : {
-      /* Daily Sum
-        ---------------
-        Key : "YYYY-MM-D"
-        Formula : sum(routine) + sum(nonroutine for key)
-      */
-      "daily" : {
-        "2015-11-1"  :  {
-          "routine" : 10.00,
-          "nonroutine" : 10.00
-        },
-        "2015-11-2"  :  {
-          "routine" : 10.00,
-          "nonroutine" : 10.00
-        }
-      },
-      /* Weekly Sum
-        ---------------
-        Key : "YYYY-WW"
-        Formula : sum(daily for YYYY-WW)
-      */
-      "weekly" : {
-        "2015-44"  :  {
-          "routine" : 20.00,
-          "nonroutine" : 20.00
-        }
-      },
-      /* Monthly Sum
-        ---------------
-        Key : "YYYY-MM"
-        Formula : sum(weekly for YYYY-MM)
-      */
-      "monthly" : {
-        "2015-11" : 40.00,
-      },
-      /* Yearly Sum
-        ---------------
-        Key : "YYYY"
-        Formula : sum(monthly for YYYY)
-      */
-      "yearly" : {
-        "2015" : 40.00
-      },
-    },
     "routine" : [
-        {
-            "id" : uuid.v4(),
-            "name": "Accenture Paycheck",
-            "description": "2x month pay from Accenture",
-            "type": "Salary",
-            "active": true,
-            "createdOn": moment("2015-11-10"),
-            "startOn": "2015-11-10",
-            "endOn": moment("2015-11-10").add(4,'M'),
-            "duration": "4 months, placeholder",
-            "amount": 4600.0,
-            "frequency": 2,
-            "frequencyDescription": "Twice a month -> 2*amount / # days in month",
-            "accounting": "credit"
-        },
-        {
-            "id" : uuid.v4(),
-            "name": "Rent",
-            "description": "Rent - Brooklyn",
-            "type": "Rent",
-            "active": true,
-            "createdOn": moment("2015-11-10"),
-            "startOn": "2015-11-10",
-            "endOn": moment("2015-11-10").add(2,'Y'),
-            "duration": "Two years, placeholder",
-            "amount": -1350.0,
-            "frequency": 1,
-            "frequencyDescription": "Once a month -> amount / # days in month",
-            "accounting": "debit"
-        },
-        {
-            "id" : uuid.v4(),
-            "name": "Rent",
-            "description": "Rent - Upstate",
-            "type": "Rent",
-            "active": false,
-            "createdOn": moment("2014-11-10"),
-            "startOn": "2015-11-10",
-            "endOn": moment("2015-11-10").add(1,'Y'),
-            "duration": "One year, placeholder",
-            "amount": -1250.0,
-            "frequency": 1,
-            "frequencyDescription": "Once a month -> amount / # days in month",
-            "accounting": "debit"
-        }
+      // Randomly generated via createRoutine
     ],
     "nonroutine" : {
-      '2015-11-14' : [
-        {
-          "id" : uuid.v4(),
-          "name": "Coffee",
-          "description": "Starbucks",
-          "type": "Coffee",
-          "active": true,
-          "createdOn": moment("2015-11-14"),
-          "startOn": "2015-11-14",
-          "amount": -2.50,
-          "accounting": "debit"
-        },
-        {
-          "id" : uuid.v4(),
-          "name": "Lottery",
-          "description": "Scratcher",
-          "type": "Lottery",
-          "active": true,
-          "createdOn": moment("2015-11-14"),
-          "startOn": "2015-11-14",
-          "amount": 5.0,
-          "accounting": "credit"
-        },
-        {
-          "id" : uuid.v4(),
-          "name": "Coffee",
-          "description": "Stauf's",
-          "type": "Lottery",
-          "active": false,
-          "createdOn": moment("2015-11-14"),
-          "startOn": "2015-11-14",
-          "amount": 5.0,
-          "accounting": "credit"
-        }
-      ]
+      //Randomly generated via createNonRoutine
     }
 };
 
@@ -205,11 +83,11 @@ function createNonRoutine(d) {
 
 budget1.nonroutine[d] = [];
 
-for (let i = 0; i < Math.floor(Math.random()*15); i++) {
+for (let i = 0; i < Math.floor(Math.random()*15+1); i++) {
     budget1.nonroutine[d].push(createNonRoutine(d));
 }
 
-for (let i = 0; i < Math.floor(Math.random()*10); i++) {
+for (let i = 0; i < Math.floor(Math.random()*10+1); i++) {
     budget1.routine.push(createRoutine(d));
 }
 

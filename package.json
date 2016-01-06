@@ -29,6 +29,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "csv": "0.4.6",
     "history": "^1.17.0",
     "immutable": "^3.7.5",
     "moment": "2.10.6",

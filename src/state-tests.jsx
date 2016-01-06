@@ -3,14 +3,13 @@ import _ from "underscore";
 import { mapAllStateToProps as mapAll } from "./utils/mapStateToProps";
 import { createCreditR, createCreditNR, createDebitNR } from "./utils/ExampleDataSets";
 import * as reducers from "./reducers/reducer";
+import { logger } from "./utils/utils";
 
 const r = mapAll(state);
 const newR = createCreditR("2016-01-13");
 const newR_ID = newR.get("id");
 
-function logger(msg, obj){
-  console.log(msg + ":\n" + obj + "\n=======================================");
-}
+
 
 function routineToSeqTypes(){
 console.log("Indexed:\n " + r.routine.toIndexedSeq());

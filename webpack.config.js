@@ -1,5 +1,4 @@
-var webpack = require('webpack'),
-    config = require('./buildConfig');
+var webpack = require('webpack');
 
 module.exports = {
   entry: [

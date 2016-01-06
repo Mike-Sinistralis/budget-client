@@ -34,6 +34,12 @@ function getDailyRate(amount,frequency,day) {
   return (amount * frequency) / moment(day).daysInMonth();
 }
 
+function logger(msg, obj){
+  console.log(msg + ":");
+  console.log(obj);
+  console.log("=======================================");
+}
+
 /* Mappers for budget objects */
 
 /* mapRoutine
@@ -126,5 +132,6 @@ module.exports = {
   dateRangeCheck: dateRangeCheck,
   mapRoutine: mapRoutine,
   mapNonRoutine: mapNonRoutine,
-  mapNonRoutineDay: mapNonRoutineDay
+  mapNonRoutineDay: mapNonRoutineDay,
+  logger: logger
 };
