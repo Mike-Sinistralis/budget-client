@@ -1,6 +1,4 @@
-/* Account Management
-  ---------------
-*/
+'use babel';
 
 import React from 'react';
 import { Alert, Grid, Row, Col } from 'react-bootstrap';

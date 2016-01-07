@@ -3,13 +3,18 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
 
+const style = {
+  width: "75%",
+  margin: "15px auto",
+  textAlign: 'left'
+};
+
 let PageAlert = React.createClass({
   render: function() {
     const {msg, desc, sev, show} = this.props.alert;
     return (
-      <Alert bsStyle={sev}>
-        <h4><strong>{msg}</strong></h4>
-        <p>{desc}</p>
+      <Alert bsStyle={sev} style={style}>
+        <p><strong>{msg}:</strong> {desc} </p>
       </Alert>
     );
   },

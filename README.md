@@ -51,7 +51,7 @@ Front-end can be seen [here.](http://andcounting.surge.sh/#/?_k=o0a7df)
 #### Sub-components
 
 **Chart Panel**
-- [ ] Determine best library to use
+- [x] Determine best library to use -- react-d3 and extend as needed
 - [ ] Integrate data flow into Chart component
 
 **Navbar**

@@ -70,7 +70,7 @@ function createNonRoutine(d) {
   if (amount % 2 === 0) {amount = amount * -1;}
   return  {
             "id" : id,
-            "name": "Random Debit - " + id,
+            "name": "Random - " + id,
             "description": "Random Debit",
             "type": "Random Debit",
             "active": true,

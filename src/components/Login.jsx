@@ -9,8 +9,8 @@ import { Input, ButtonInput, Grid, Row, Col } from 'react-bootstrap';
 import PageAlert from './Alert';
 
 var alert = {
-  msg: "Uh oh!",
-  desc: "This isn't quite ready yet and is just a placeholder. Please try back later!",
+  msg: "Under Development",
+  desc: "This isn't quite ready yet. Make sure to check back soon!",
   sev: "warning"
 };
 
@@ -23,7 +23,7 @@ const loginGrid = (
         <form>
           <Input type="email" label="Email Address" placeholder="Enter email" />
           <Input type="password" label="Password" />
-          <ButtonInput type="submit" value="Login" />
+          <Link to="/dashboard"><ButtonInput type="submit" value="Login" /></Link>
         </form>
       </Col>
       <Col xs={3} md={4}></Col>
@@ -32,6 +32,7 @@ const loginGrid = (
 );
 
 var Login = React.createClass({
+
   render: function() {
     return loginGrid;
   }

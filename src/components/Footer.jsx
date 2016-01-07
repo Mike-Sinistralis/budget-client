@@ -1,4 +1,5 @@
 // Footer.jsx
+'use babel';
 
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';

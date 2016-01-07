@@ -1,8 +1,8 @@
 // App.jsx
 
 import React from 'react';
-import Nav from './Navigation';
-import Footer from './Footer';
+import Nav from '../components/Navigation';
+import Footer from '../components/Footer';
 
 export default React.createClass({
   render: function() {

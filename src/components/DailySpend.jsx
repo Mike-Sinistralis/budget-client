@@ -16,7 +16,7 @@ import { mapAllStateToProps } from '../utils/mapStateToProps';
 import { getDollarColor } from '../utils/css';
 
 /* Pure Component */
-const DailySpendDumb = React.createClass({
+const DailySpend = React.createClass({
   render: function() {
     const { netToday, nonroutineToday, routineToday } = this.props;
     return (
@@ -30,10 +30,6 @@ const DailySpendDumb = React.createClass({
   }
 });
 
-/* Connected Component */
-const DailySpend = connect(mapAllStateToProps)(DailySpendDumb);
-
 module.exports = {
-  DailySpend: DailySpend,
-  DailySpendDumb: DailySpendDumb
+  DailySpend: DailySpend
 };

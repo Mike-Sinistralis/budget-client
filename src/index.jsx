@@ -8,10 +8,10 @@ import { Provider } from 'react-redux';
 
 /* budget-client Custom */
 import { store } from './store';
-import App from './components/App';
+import App from './containers/App';
 import Login from './components/Login';
-import Dashboard from './components/Dashboard';
-import Account from './components/Account';
+import Dashboard from './containers/Dashboard';
+import Account from './containers/Account';
 
 const routes = <Route component={App}>
     <Route path="/" component={Login} />
