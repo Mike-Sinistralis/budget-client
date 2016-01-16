@@ -17,7 +17,11 @@ var config = {
       test: /\.js$/,
       exclude: [node_modules_dir],
       loader: 'babel'
-    }]
+    },
+    {
+    test: /\.css$/,
+    loader: "style-loader!css-loader"
+  }]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

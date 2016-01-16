@@ -6,11 +6,14 @@ import { Grid, Row, Col, Panel } from 'react-bootstrap';
 import { mapAllStateToProps } from '../utils/mapStateToProps';
 
 /* Components */
-import PageAlert from '../components/Alert';
-import { BudgetChart } from '../components/BudgetChart';
-import { DailySpend } from '../components/DailySpend';
-import { NonroutineSpend } from '../components/NonroutineSpend';
-import { RoutineSpend} from '../components/RoutineSpend';
+import PageAlert from '../components/PageAlert';
+import BudgetChart from '../components/BudgetChart';
+import DailySpend from '../components/DailySpend';
+import NonroutineSpend from '../components/NonroutineSpend';
+import RoutineSpend from '../components/RoutineSpend';
+
+/* Stylesheets */
+import { DashboardStyle } from '../css/DashboardStyle.css';
 
 var alert = {
   msg: "Under Development",
@@ -18,20 +21,15 @@ var alert = {
   sev: "warning"
 };
 
-
-var dashStyle = {
-  textAlign: 'center'
-};
-
 var Dashboard = React.createClass({
   render: function() {
     return (
-      <Grid style={dashStyle} fluid={false}>
+      <Grid className="dashboard-grid text-center" fluid={false}>
         <Row className="alertRow"><PageAlert alert={alert} /></Row>
-        <Row className="dailySpend"><DailySpend netToday={this.props.netToday} nonroutineToday = {this.props.nonroutineToday} routineToday={this.props.routineToday} /></Row>
+        <Row className="dailySpend"><DailySpend netToday={this.props.budget.netToday} nonroutineToday = {this.props.budget.nonroutineToday} routineToday={this.props.budget.routineToday} /></Row>
         <Row className="budgetChart"><BudgetChart /></Row>
-        <Row className="nonroutineSpend"><NonroutineSpend nonroutine={this.props.nonroutine} today={this.props.today}/></Row>
-        <Row className="routineSpend"><RoutineSpend routine={this.props.routine} /></Row>
+        <Row className="nonroutineSpend"><NonroutineSpend nonroutine={this.props.budget.nonroutine} today={this.props.budget.today}/></Row>
+        <Row className="routineSpend"><RoutineSpend routine={this.props.budget.routine} /></Row>
       </Grid>
     );
   }

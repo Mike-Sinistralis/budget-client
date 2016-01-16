@@ -1,0 +1,47 @@
+
+.landing-header {
+  background-color: #18bc9c;
+  width:initial;
+  height: 475px;
+  padding-top: 50px;
+}
+
+.landing-why {
+  background-color: white;
+  width: initial;
+  height: 400px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.landing-join-now {
+  color: white;
+  font-weight: bold;
+  height: 200px;
+  padding-top: 80px;
+}
+
+.welcome {
+  color: white;
+  font-size: 32px;
+}
+
+.landing-why-headline {
+  padding-bottom: 25px;
+}
+
+.landing-why-img {
+  height: 125px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#landing-header-svg {
+  height: 150px;
+  fill: #2c3e50;
+}
+
+#mo-money {
+  padding-bottom: 15px;
+}

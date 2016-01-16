@@ -1,17 +1,28 @@
-/* mapStateToProps - Mappers
-  ---------------
-
-    To Dos
-    ---------------
-    - Move logic (routineToday, etc.) into
-*/
+// mapStateToProps.js
 
 var moment = require('moment');
 var bM = require('./budgetMath');
 var utils = require('./utils');
 var dateFormat = utils.dateFormat;
 
-function mapAllStateToProps(state) {
+function mapUserStatetoProps(state) {
+  return {
+    id: state.get('id'),
+    name: state.get('name'),
+    firstName: state.get('firstName'),
+    lastName: state.get('lastName'),
+    isAuthenticated: state.get('isAuthenticated'),
+    isLoggedIn: state.get('isLoggedIn')
+  };
+}
+
+function mapErrorsStatetoProps(state) {
+  return {
+    hasErrors: false
+  };
+}
+
+function mapBudgetStateToProps(state) {
   var d = moment().format(dateFormat.daily);
   return {
     today: d,
@@ -29,6 +40,17 @@ function mapAllStateToProps(state) {
   };
 }
 
+function mapAllStateToProps(state) {
+    return {
+      user: mapUserStatetoProps(state.get('user')),
+      budget: mapBudgetStateToProps(state.get('budget')),
+      errors: mapErrorsStatetoProps(state.get('errors'))
+    };
+}
+
 module.exports = {
+  mapUserStatetoProps,
+  mapErrorsStatetoProps,
+  mapBudgetStateToProps,
   mapAllStateToProps: mapAllStateToProps
 };

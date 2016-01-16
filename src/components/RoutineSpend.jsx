@@ -61,6 +61,4 @@ const RoutineSpend = React.createClass({
   }
 });
 
-module.exports = {
-  RoutineSpend: RoutineSpend
-};
+export default RoutineSpend;

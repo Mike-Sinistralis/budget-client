@@ -52,6 +52,4 @@ const NonroutineSpend = React.createClass({
   }
 });
 
-module.exports = {
-  NonroutineSpend: NonroutineSpend
-};
+export default NonroutineSpend;

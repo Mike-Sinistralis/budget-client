@@ -9,11 +9,26 @@ var uuid = require('node-uuid');
 var dateFormat = utils.dateFormat;
 var d = moment().format(dateFormat.daily);
 
-/* budget1 - Use for testing with budget1Day */
+/* USER OBJECT - Skeleton for user object */
+var user = {
+  id: uuid.v4(),
+  name: "barric.reed",
+  firstName: "Barric",
+  lastName: "Reed",
+  isAuthenticated: true,
+  isLoggedIn: true
+};
+
+/* ERROR OBJECT - Skeleton for error object */
+var errors = {
+
+};
+
+/* BUDGET OBJECT - Skeleton for budget object for use with budget1Day */
 var budget1Day = "2015-11-14";
 var budget1 = {
-    "user" : "barric.reed",
-    "id" : uuid.v4(),
+    "user" : user.name,
+    "user_id" : user.id,
     "name" : "Barric's Budget",
     "description" : "This is Barric's test budget",
     "routine" : [
@@ -24,6 +39,8 @@ var budget1 = {
     }
 };
 
+
+/* Helper functions for creating transactions */
 function createCreditR(d) {
   const id = uuid.v4();
   return  immutable.Map({
@@ -81,6 +98,7 @@ function createNonRoutine(d) {
           };
 }
 
+/* Generate random transactions */
 budget1.nonroutine[d] = [];
 budget1.nonroutine[d].push(createNonRoutine(d));
 budget1.routine.push(createRoutine(d));
@@ -93,9 +111,19 @@ for (let i = 0; i < Math.floor(Math.random()*10+1); i++) {
     budget1.routine.push(createRoutine(d));
 }
 
+/* OUTPUT: EXAMPLE STORE OBJECT */
+var exampleStore = {
+  user: user,
+  errors: errors,
+  budget: budget1
+};
+
+console.log("New exampleStore created.");
+
 module.exports = {
   budget1: budget1,
   budget1Day: budget1Day,
   createRoutine: createRoutine,
-  createNonRoutine: createNonRoutine
+  createNonRoutine: createNonRoutine,
+  exampleStore: exampleStore
 };

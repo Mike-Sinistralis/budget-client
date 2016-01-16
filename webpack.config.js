@@ -7,11 +7,19 @@ module.exports = {
     './src/index.jsx'
   ],
   module: {
-    loaders: [{
+    loaders: [
+    // our jsx loader
+      {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'react-hot!babel'
-    }]
+    },
+    // our css loader
+      {
+      test: /\.css$/,
+      loader: "style-loader!css-loader"
+    }
+  ]
   },
   devtool: 'source-map',
   cache: true,

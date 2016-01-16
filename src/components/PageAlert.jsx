@@ -11,7 +11,7 @@ const style = {
 
 let PageAlert = React.createClass({
   render: function() {
-    const {msg, desc, sev, show} = this.props.alert;
+    const {msg, desc, sev} = this.props.alert;
     return (
       <Alert bsStyle={sev} style={style}>
         <p><strong>{msg}:</strong> {desc} </p>

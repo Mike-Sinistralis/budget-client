@@ -9,37 +9,59 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, Image, Grid, Row, Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { mapAllStateToProps } from '../utils/mapStateToProps';
+import { store } from '../store';
 
-var bgcolor = {
-    backgroundColor: '#272729'
+/* Stylesheets */
+import NavbarStyle from '../css/NavbarStyle.css';
+
+const profileImageHeightWidth = {
+
 };
 
-var profileImageHeightWidth = {
-    height: '22px',
-    width: '19px'
-};
-
-var Navigation = React.createClass({
+const Navigation = React.createClass({
+  logoutUser: function(event){
+    store.dispatch({
+      type: "LOGOUT_USER"
+    });
+  },
+  loggedIn: function() {
+    if (this.props.user.isAuthenticated){
+      return (
+        <Nav pullRight>
+          <NavItem className="navbar-text-special" eventKey={2} href="#/dashboard"><p className="navbar-text-special">Saved: $400.00</p></NavItem>
+          <NavItem className="navbar-text-special" eventKey={3} href="#/account"><p className="navbar-text-special">{this.props.user.name}</p></NavItem>
+          <NavItem className="navbar-text-special" eventKey={3} href="#/"><p className="navbar-text-special" onClick={this.logoutUser}>Logout</p></NavItem>
+          <NavItem href="#/account"><Image className="navbar-profile-picture" src="./img/profile.jpg" rounded responsive /></NavItem>
+        </Nav>
+      );
+    }
+    else {
+      return (
+        <Nav pullRight>
+          <NavItem className="navbar-text-special=" eventKey={2} href="#/login"><p className="navbar-text-special">Login</p></NavItem>
+        </Nav>
+      );
+    }
+  },
   render: function() {
-    return   <Navbar style={bgcolor} staticTop={true} inverse>
+    const { name, firstName, lastName, isAuthenticated } = this.props.user;
+    return   <Navbar staticTop={true} inverse>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="#">&Counting</a>
+        <a id="brab" href="#"><p className="navbar-text-brand">&Counting</p></a>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="#/dashboard">Dashboard</NavItem>
+        <NavItem eventKey={1} href="#/dashboard"><p className="navbar-text-special">Dashboard</p></NavItem>
       </Nav>
-      <Nav pullRight>
-        <NavItem eventKey={2} href="#/dashboard">Saved: $400.12</NavItem>
-        <NavItem eventKey={3} href="#/account">barric.reed</NavItem>
-        <NavItem href="#/account"><Image style={profileImageHeightWidth} src="profile.jpg" rounded /></NavItem>
-      </Nav>
+      {this.loggedIn()}
     </Navbar.Collapse>
   </Navbar>;
   }
 });
 
-export default Navigation;
+export default connect(mapAllStateToProps)(Navigation);

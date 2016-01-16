@@ -20,6 +20,7 @@ Front-end can be seen [here.](http://andcounting.surge.sh/#/?_k=o0a7df)
 
 **UX**
 - [ ] Make view work for mobile / xs
+- [ ] NotFound Page
 
 **Testing**
 - [ ] Create unit tests

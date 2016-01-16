@@ -12,7 +12,6 @@
 import React from 'react';
 import { Panel, Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { mapAllStateToProps } from '../utils/mapStateToProps';
 import { getDollarColor } from '../utils/css';
 
 /* Pure Component */
@@ -30,6 +29,4 @@ const DailySpend = React.createClass({
   }
 });
 
-module.exports = {
-  DailySpend: DailySpend
-};
+export default DailySpend;
