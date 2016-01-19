@@ -16,10 +16,6 @@ import { store } from '../store';
 /* Stylesheets */
 import NavbarStyle from '../css/NavbarStyle.css';
 
-const profileImageHeightWidth = {
-
-};
-
 const Navigation = React.createClass({
   logoutUser: function(event){
     store.dispatch({

@@ -53,22 +53,17 @@ var Landing = React.createClass({
           <h3>Three steps to financial freedom.</h3>
         </Row>
         <Row className="why-row">
-          <Col md={3}/>
-          <Col md={2}><Image className="landing-why-img" src="./img/calculator-money.png" rounded responsive />
+          <Col xs={0} md={3}/>
+          <Col xs={12} md={2}><Image className="landing-why-img" src="./img/calculator-money.png" rounded responsive />
             <p><strong>Step 1. </strong>Calculate</p>
           </Col>
-          <Col md={2}><Image className="landing-why-img" src="./img/pie-chart.png" rounded responsive />
+          <Col xs={12} md={2}><Image className="landing-why-img" src="./img/pie-chart.png" rounded responsive />
             <p><strong>Step 2. </strong> ...</p>
           </Col>
-          <Col md={2}><Image className="landing-why-img" src="./img/dollar-bills.png" rounded responsive />
+          <Col xs={12} md={2}><Image className="landing-why-img" src="./img/dollar-bills.png" rounded responsive />
             <p><strong>Step 3. </strong> Profit!</p>
           </Col>
-          <Col md={3}/>
-        </Row>
-      </Grid>
-      <Grid className="landing-join-now text-center">
-        <Row>
-          <h2>Come join us today!</h2>
+          <Col xs={0} md={3}/>
         </Row>
       </Grid>
     </div>

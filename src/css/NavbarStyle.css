@@ -6,7 +6,11 @@
   align-items: center;
   padding-top: 15px;
   border: 0px;
+}
 
+.navbar-toggle {
+  position: relative;
+  bottom: 10px;
 }
 
 .navbar-text-special {
@@ -27,6 +31,12 @@
   color: #18bc9c;
 }
 
+.navbar-text-brand:hover {
+  color: #18bc9c;
+}
+
 .navbar-profile-picture {
   height: 30px;
+  position:relative;
+  bottom:10px;
 }
