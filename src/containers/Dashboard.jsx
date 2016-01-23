@@ -28,8 +28,8 @@ var Dashboard = React.createClass({
         <Row className="alertRow"><PageAlert alert={alert} /></Row>
         <Row className="dailySpend"><DailySpend netToday={this.props.budget.netToday} nonroutineToday = {this.props.budget.nonroutineToday} routineToday={this.props.budget.routineToday} /></Row>
         <Row className="budgetChart"><BudgetChart /></Row>
-        <Row className="nonroutineSpend"><NonroutineSpend nonroutine={this.props.budget.nonroutine} today={this.props.budget.today}/></Row>
-        <Row className="routineSpend"><RoutineSpend routine={this.props.budget.routine} /></Row>
+        <Row className="nonroutineSpend text-left"><NonroutineSpend nonroutine={this.props.budget.nonroutine} today={this.props.budget.today}/></Row>
+        <Row className="routineSpend text-left"><RoutineSpend routine={this.props.budget.routine} /></Row>
       </Grid>
     );
   }

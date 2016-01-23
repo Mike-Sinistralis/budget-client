@@ -9,12 +9,11 @@ import React from 'react';
 import { Panel, Table, Glyphicon } from 'react-bootstrap';
 import { getDollarColor, getAmountFormat } from '../utils/css';
 
-const tableStyle = {
-  textAlign: 'left'
-};
-
 const panelTitle = (
-  <h3 style={tableStyle}>// Today's Activity</h3>
+  <div>
+    <Glyphicon glyph="wrench"><span className="span-header"> Today</span></Glyphicon>
+    <Glyphicon glyph="plus" className="add-new-item-right"></Glyphicon>
+  </div>
 );
 
 const NonroutineSpend = React.createClass({
@@ -24,7 +23,7 @@ const NonroutineSpend = React.createClass({
 
     return (
       <Panel header={panelTitle}>
-        <Table hover striped condensed style={tableStyle}>
+        <Table hover striped condensed>
           <thead>
             <tr>
               <th>Name</th>

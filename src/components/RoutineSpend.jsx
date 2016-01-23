@@ -11,19 +11,18 @@ import { connect } from 'react-redux';
 import { getDailyRate } from '../utils/utils';
 import { getDollarColor, getAmountFormat } from '../utils/css';
 
-const tableStyle = {
-  textAlign: 'left'
-};
-
 const panelTitle = (
-  <h3 style={tableStyle}>// Routine Spend</h3>
+  <div>
+    <Glyphicon glyph="wrench"><span className="span-header"> Everyday</span></Glyphicon>
+    <Glyphicon glyph="plus" className="add-new-item-right"></Glyphicon>
+  </div>
 );
 
 const RoutineSpend = React.createClass({
   render: function() {
     return (
       <Panel header={panelTitle}>
-        <Table hover striped condensed style={tableStyle}>
+        <Table hover striped condensed>
           <thead>
             <tr>
               <th>Name</th>

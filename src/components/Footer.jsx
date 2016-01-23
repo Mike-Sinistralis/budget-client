@@ -3,33 +3,21 @@
 
 import React from 'react';
 import { Link } from 'react-router';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 import { githubClientUrl } from "../utils/constants";
 
-const footerPadding = {
-  paddingLeft: "17%",
-  paddingRight: "17%",
-  fontSize: "12px"
-};
-
-const leftSpan = {
-  paddingLeft: "5%"
-};
-
-const rightSpan = {
-  paddingRight: "5%",
-  float: "right"
-};
+/* Stylesheets */
+import FooterStyle from '../css/FooterStyle.css';
 
 // Need to convert to sticky footer
 class Footer extends React.Component {
   render() {
     return (
-      <footer style={footerPadding}>
-        <hr />
+      <footer className="footer-one">
+        <hr className="style-two"/>
         <p>
-          <span style={leftSpan}>© &Counting </span>
-          <span style={rightSpan}>
+          <span className="footer-left">© 2016 &Counting</span>
+          <span className="footer-right">
             <Link to="/faq">FAQ</Link> |
             <a href={githubClientUrl}> Github</a> |
             <Link to="/contact"> Contact Us</Link>

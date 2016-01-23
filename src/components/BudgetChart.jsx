@@ -1,17 +1,15 @@
 // BudgetChart.jsx
 
 import React from 'react';
-import { Panel } from 'react-bootstrap';
+import { Panel, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { mapAllStateToProps } from '../utils/mapStateToProps';
 import { BarChart } from 'react-d3';
 
-const tableStyle = {
-  textAlign: 'left'
-};
-
 const panelTitle = (
-  <h3 style={tableStyle}>// Trends</h3>
+  <div>
+    <Glyphicon glyph="stats"><span className="span-header"> Trends</span></Glyphicon>
+  </div>
 );
 
 const barData = [

@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { Input, ButtonInput, Grid, Row, Col } from 'react-bootstrap';
 import { mapAllStateToProps } from '../utils/mapStateToProps';
 import { store } from '../store';
+import FacebookLogin from '../components/login/Facebook';
 
 /* Components */
 import PageAlert from '../components/PageAlert';
@@ -37,6 +38,8 @@ var Login = React.createClass({
       }
     });
   },
+
+  // Stackoverflow has a good method for login buttons
   render: function() {
     return (
       <Grid>
@@ -48,6 +51,7 @@ var Login = React.createClass({
               <Input type="email" label="Email Address" placeholder="Enter email" />
               <Input type="password" label="Password" />
               <Link to="/dashboard"><ButtonInput type="submit" value="Login" onClick={this.loginUser}/></Link>
+              <FacebookLogin />
             </form>
           </Col>
           <Col xs={3} md={4}></Col>

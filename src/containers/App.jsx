@@ -12,7 +12,7 @@ export default React.createClass({
     return (
       <div className="app">
         <Nav />
-        {this.props.children}
+        <div classname="main">{this.props.children}</div>
         <Footer />
       </div>
     );

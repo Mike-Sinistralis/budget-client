@@ -1,13 +1,15 @@
 
 .landing-header {
   background-color: #18bc9c;
-  width:initial;
+  max-width: none;
+  width: initial;
   height: 475px;
   padding-top: 50px;
 }
 
 .landing-why {
   background-color: white;
+  max-width: none;
   width: initial;
   height: 400px;
   padding-top: 50px;

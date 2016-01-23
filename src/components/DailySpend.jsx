@@ -10,16 +10,22 @@
 */
 
 import React from 'react';
-import { Panel, Grid, Row, Col } from 'react-bootstrap';
+import { Panel, Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { getDollarColor } from '../utils/css';
+
+const panelTitle = (
+  <div>
+    <Glyphicon glyph="piggy-bank"><span className="span-header"> Summary</span></Glyphicon>
+  </div>
+);
 
 /* Pure Component */
 const DailySpend = React.createClass({
   render: function() {
     const { netToday, nonroutineToday, routineToday } = this.props;
     return (
-      <Panel>
+      <Panel header={panelTitle}>
         <Grid fluid={true}>
           <Row><h2>Net: <font style={getDollarColor(netToday.toFixed(2))}>${netToday.toFixed(2).replace("-","")}</font></h2></Row>
           <Row>Today: <font style={getDollarColor(nonroutineToday)}>${nonroutineToday.toFixed(2).replace("-","")}</font> |

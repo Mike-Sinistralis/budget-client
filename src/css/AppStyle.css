@@ -1,0 +1,14 @@
+/*
+green-blue - #18bc9c
+blue - #1b97d1
+*/
+
+body {
+  background-color: rgb(247, 247, 247);
+}
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 970px;
+    }
+}
