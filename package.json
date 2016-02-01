@@ -34,6 +34,7 @@
   "dependencies": {
     "csv": "0.4.6",
     "d3": "4.0.0-alpha.2",
+    "faker": "3.0.1",
     "history": "^1.17.0",
     "immutable": "^3.7.5",
     "moment": "2.10.6",

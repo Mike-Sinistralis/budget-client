@@ -11,6 +11,13 @@ function mapUserStatetoProps(state) {
     name: state.get('name'),
     firstName: state.get('firstName'),
     lastName: state.get('lastName'),
+    username: state.get('username'),
+    email: state.get('email'),
+    address: state.get('address'),
+    phone: state.get('phone'),
+    website: state.get('website'),
+    company: state.get('company'),
+    imageUrl: state.get('imageUrl'),
     isAuthenticated: state.get('isAuthenticated'),
     isLoggedIn: state.get('isLoggedIn')
   };

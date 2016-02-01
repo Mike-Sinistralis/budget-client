@@ -28,7 +28,7 @@ const Navigation = React.createClass({
         <Nav pullRight>
           <NavItem className="navbar-text-special" eventKey={3} href="#/account"><p className="navbar-text-special">{this.props.user.name}</p></NavItem>
           <NavItem className="navbar-text-special" eventKey={3} href="#/"><p className="navbar-text-special" onClick={this.logoutUser}>Logout</p></NavItem>
-          <NavItem href="#/account"><Image className="navbar-profile-picture" src="./img/profile.jpg" rounded responsive /></NavItem>
+          <NavItem href="#/account"><Image className="navbar-profile-picture" src={this.props.user.imageUrl} rounded responsive /></NavItem>
         </Nav>
       );
     }

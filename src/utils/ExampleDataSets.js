@@ -6,18 +6,31 @@ var immutable = require('immutable');
 var moment = require('moment');
 var utils = require('./utils');
 var uuid = require('node-uuid');
+var faker = require('faker');
 var dateFormat = utils.dateFormat;
 var d = moment().format(dateFormat.daily);
+
+/* FAKER PROFILE - Seeding new values */
+var profile = faker.helpers.createCard();
 
 /* USER OBJECT - Skeleton for user object */
 var user = {
   id: uuid.v4(),
-  name: "barric.reed",
-  firstName: "Barric",
-  lastName: "Reed",
+  name: profile.name,
+  firstName: profile.name.split(" ")[0],
+  lastName:  profile.name.split(" ")[1],
+  username: profile.username,
+  email: profile.email,
+  address: profile.address,
+  phone: profile.phone,
+  website: profile.website,
+  company: profile.company,
+  imageUrl: faker.image.imageUrl(),
   isAuthenticated: true,
   isLoggedIn: true
 };
+
+console.log(user);
 
 /* ERROR OBJECT - Skeleton for error object */
 var errors = {
@@ -29,8 +42,8 @@ var budget1Day = "2015-11-14";
 var budget1 = {
     "user" : user.name,
     "user_id" : user.id,
-    "name" : "Barric's Budget",
-    "description" : "This is Barric's test budget",
+    "name" : user.firstName + " 's Budget",
+    "description" : "This is " + user.firstName + "'s test budget",
     "routine" : [
       // Randomly generated via createRoutine
     ],
@@ -43,17 +56,18 @@ var budget1 = {
 /* Helper functions for creating transactions */
 function createCreditR(d) {
   const id = uuid.v4();
+  const t  = faker.helpers.createTransaction();
   return  immutable.Map({
             "id" : id,
-            "name": "Random - " + id,
-            "description": id,
-            "type": "Random",
+            "name": t.business,
+            "description": t.name,
+            "type": t.type,
             "active": true,
             "createdOn": moment(d),
             "startOn": d,
             "endOn": moment(d).add(1,'Y'),
             "duration": "1 Year",
-            "amount": 4600.0,
+            "amount": Number(t.amount),
             "frequency": 2,
             "frequencyDescription": "2x Month: 2*amount / # days in month",
             "accounting": "credit"
@@ -62,19 +76,18 @@ function createCreditR(d) {
 
 function createRoutine(d) {
   const id = uuid.v4();
-  let amount = Math.floor((Math.random() * 1000)*Math.random()*3);
-  if (amount % 2 === 0) {amount = amount * -1;}
+  const t  = faker.helpers.createTransaction();
   return  immutable.Map({
             "id" : id,
-            "name": "Random - " + id,
-            "description": id,
-            "type": "Random",
+            "name": t.business,
+            "description": t.name,
+            "type": t.type,
             "active": true,
             "createdOn": moment(d),
             "startOn": d,
             "endOn": moment(d).add(1,'Y'),
             "duration": "1 Year",
-            "amount": amount,
+            "amount": Number(t.amount),
             "frequency": Math.floor((Math.random() * 4)+1),
             "frequencyDescription": "2x Month: 2*amount / # days in month",
             "accounting": "credit"
@@ -83,17 +96,18 @@ function createRoutine(d) {
 
 function createNonRoutine(d) {
   const id = uuid.v4();
+  const t  = faker.helpers.createTransaction();
   let amount = Math.floor((Math.random() * 100));
   if (amount % 2 === 0) {amount = amount * -1;}
   return  {
             "id" : id,
-            "name": "Random - " + id,
-            "description": "Random Debit",
-            "type": "Random Debit",
+            "name": t.business,
+            "description": t.name,
+            "type": t.type,
             "active": true,
             "createdOn": moment(d),
             "startOn": d,
-            "amount": amount,
+            "amount": Number(t.amount),
             "accounting": "debit"
           };
 }
