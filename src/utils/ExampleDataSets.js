@@ -30,8 +30,6 @@ var user = {
   isLoggedIn: true
 };
 
-console.log(user);
-
 /* ERROR OBJECT - Skeleton for error object */
 var errors = {
 
