@@ -1,0 +1,6 @@
+dist/**
+prod/**
+coverage/**
+node_modules/**
+webpack.config.js
+webpack.production.config.js

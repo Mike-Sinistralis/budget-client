@@ -15,7 +15,7 @@ import FacebookLogin from '../components/login/Facebook';
 import PageAlert from '../components/PageAlert';
 
 /* Stylesheets */
-import { LoginStyle } from '../css/LoginStyle.css';
+import { LoginStyle } from '../scss/LoginStyle';
 
 var alert = {
   msg: "Under Development",

@@ -10,7 +10,7 @@ import { mapAllStateToProps } from '../utils/mapStateToProps';
 import PageAlert from '../components/PageAlert';
 
 /* Stylesheets */
-import LandingStyle from '../css/LandingStyle.css';
+import LandingStyle from '../scss/LandingStyle';
 
 var alert = false;
 

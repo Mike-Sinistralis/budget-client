@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "eslint-config-airbnb"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "babel"
+  ]
+}

@@ -14,7 +14,7 @@ import { mapAllStateToProps } from '../utils/mapStateToProps';
 import { store } from '../store';
 
 /* Stylesheets */
-import NavbarStyle from '../css/NavbarStyle.css';
+import NavbarStyle from '../scss/NavbarStyle';
 
 const Navigation = React.createClass({
   logoutUser: function(event){
