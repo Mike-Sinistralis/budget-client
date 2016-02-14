@@ -1,9 +1,6 @@
-// mapStateToProps.js
-
-var moment = require('moment');
-var bM = require('./budgetMath');
-var utils = require('./utils');
-var dateFormat = utils.dateFormat;
+import moment from 'moment';
+import bM from './budgetMath';
+import { dateFormat } from './utils';
 
 function mapUserStatetoProps(state) {
   return {
@@ -19,18 +16,18 @@ function mapUserStatetoProps(state) {
     company: state.get('company'),
     imageUrl: state.get('imageUrl'),
     isAuthenticated: state.get('isAuthenticated'),
-    isLoggedIn: state.get('isLoggedIn')
+    isLoggedIn: state.get('isLoggedIn'),
   };
 }
 
-function mapErrorsStatetoProps(state) {
+function mapErrorsStatetoProps() {
   return {
-    hasErrors: false
+    hasErrors: false,
   };
 }
 
 function mapBudgetStateToProps(state) {
-  var d = moment().format(dateFormat.daily);
+  const d = moment().format(dateFormat.daily);
   return {
     today: d,
     user: state.get('user'),
@@ -48,16 +45,16 @@ function mapBudgetStateToProps(state) {
 }
 
 function mapAllStateToProps(state) {
-    return {
-      user: mapUserStatetoProps(state.get('user')),
-      budget: mapBudgetStateToProps(state.get('budget')),
-      errors: mapErrorsStatetoProps(state.get('errors'))
-    };
+  return {
+    user: state.get('user'),
+    budget: mapBudgetStateToProps(state.get('budget')),
+    errors: mapErrorsStatetoProps(state.get('errors')),
+  };
 }
 
 module.exports = {
   mapUserStatetoProps,
   mapErrorsStatetoProps,
   mapBudgetStateToProps,
-  mapAllStateToProps: mapAllStateToProps
+  mapAllStateToProps,
 };

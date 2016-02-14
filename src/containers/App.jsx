@@ -1,20 +1,15 @@
-// App.jsx
+import { connect } from 'react-redux';
 
-import React from 'react';
-import Nav from '../components/Navigation';
-import Footer from '../components/Footer';
+import App from '../Components/App';
 
-/* stylesheets */
-import { AppStyle } from '../scss/AppStyle';
+function mapStateToProps(state) {
+  return {
 
-export default React.createClass({
-  render: function() {
-    return (
-      <div className="app">
-        <Nav />
-        <div classname="main">{this.props.children}</div>
-        <Footer />
-      </div>
-    );
-  }
-});
+  };
+}
+
+const AppContainer = connect(
+  mapStateToProps
+)(App);
+
+export default AppContainer;

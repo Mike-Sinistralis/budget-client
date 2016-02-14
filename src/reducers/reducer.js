@@ -9,6 +9,7 @@
 
 import { Map } from 'immutable';
 import uuid from 'node-uuid';
+import { exampleStore } from '../utils/ExampleDataSets';
 
 // action types
 import {  SET_STATE,
@@ -57,7 +58,7 @@ export function deleteRoutineByID(state, rId) {
   return state.set("routine", state.get("routine").delete(i));
 }
 
-export default function reducer(state = Map(), action) { // jshint ignore:line
+export default function reducer(state = exampleStore, action) {
     switch (action.type) {
         // General Reducers
         case SET_STATE:

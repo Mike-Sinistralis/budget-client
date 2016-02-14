@@ -4,7 +4,7 @@ import DevTools from '../Containers/DevTools';
 import createLogger from 'redux-logger';
 import perf from 'react-addons-perf';
 
-import { reducer as appReducer } from '../reducers/app';
+import reducer from '../reducers/reducer';
 import sagas from '../sagas';
 
 const createStoreWithSaga = compose(
@@ -15,9 +15,7 @@ const createStoreWithSaga = compose(
   DevTools.instrument()
 )(createStore);
 
-const store = createStoreWithSaga(appReducer);
-
-// TODO: Get hot module reloading working for reducers
+const store = createStoreWithSaga(reducer);
 
 window.store = store;
 window.perf = perf;

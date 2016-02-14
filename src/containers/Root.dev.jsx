@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
 import DevTools from './DevTools';
-import AppContainer from './App';
+import Routes from '../components/routes';
 
 class Root extends Component
 {
@@ -12,7 +12,7 @@ class Root extends Component
     return (
       <Provider store={store}>
         <div>
-          <AppContainer />
+          <Routes />
           <DevTools />
         </div>
       </Provider>

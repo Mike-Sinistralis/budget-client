@@ -4,40 +4,39 @@
   1. sumRoutine - Sums
 */
 
-var _ = require('lodash');
-var moment = require('moment');
-require('moment-range');
+import 'moment-range';
+import moment from 'moment';
+import { map } from 'lodash';
 
 /* Constants */
-var dateFormat = {
-  "daily" : "YYYY-MM-DD",
-  "weekly" : "YYYY-WW",
-  "monthly" : "YYYY-MM",
-  "yearly" : "YYYY"
+const dateFormat = {
+  daily: 'YYYY-MM-DD',
+  weekly: 'YYYY-WW',
+  monthly: 'YYYY-MM',
+  yearly: 'YYYY',
 };
 
 /* General Helpers */
-function validateArg(fnName, arg, argName){
+function validateArg(fnName, arg, argName) {
   if (fnName === undefined || argName === undefined) {
-    throw "ERROR: validateArg requires function name and argument name to be specified.";
+    throw new Error('ERROR: validateArg requires function name and argument name to be specified.');
   }
   if (arg === undefined) {
-    throw "ERROR: fn: " + fnName + " | err: " + argName + "defined.";
+    throw new Error(`ERROR: fn: ${fnName} | err: ${argName} defined.`);
   }
 }
 
-function dateRangeCheck(s,e,d) {
-  return moment.range(moment(s), moment(e)).contains(moment(d));
+function dateRangeCheck(start, end, day) {
+  return moment.range(moment(start), moment(end)).contains(moment(day));
 }
 
-function getDailyRate(amount,frequency,day) {
+function getDailyRate(amount, frequency, day) {
   return (amount * frequency) / moment(day).daysInMonth();
 }
 
-function logger(msg, obj){
-  console.log(msg + ":");
-  console.log(obj);
-  console.log("=======================================");
+function logger(msg, obj) {
+  console.log(`${msg}:`, obj);
+  console.log('=======================================');
 }
 
 /* Mappers for budget objects */
@@ -46,16 +45,15 @@ function logger(msg, obj){
   ---------------
   Returns a list of daily rates summarized for the given day or today if day is not provided.
   input(s):
-   | - routine budget (r)
-   | - (optional) d - a day to use for summarizing (# days in month) and comparison to date range
+   | - routine budget (routine)
+   | - (optional) day - a day to use for summarizing (# days in month) and comparison to date range
   output(s): array of floats representing daily rates for each routine, active transaction
 */
-function mapRoutine(r,d){
-  d = d || moment();
-  if (r) {
-    return _.map(r, function(n) {
-      if (dateRangeCheck(n.startOn, n.endOn, d) && n.active) {
-        return (n.amount * n.frequency) / moment(d).daysInMonth();
+function mapRoutine(routine, day = moment()) {
+  if (routine) {
+    return map(routine, (transaction) => {
+      if (dateRangeCheck(transaction.startOn, transaction.endOn, day) && transaction.active) {
+        return (transaction.amount * transaction.frequency) / moment(day).daysInMonth();
       }
       return 0;
     });
@@ -67,13 +65,13 @@ function mapRoutine(r,d){
   ---------------
   Returns a list of amounts
   input(s):
-   | - a set of transactions for a given day (nr)
+   | - a set of transactions for a given day (nonRoutine)
   output(s): array of floats representing daily rates for each nonroutine, active transaction
 */
-function mapNonRoutine(nr){
-  return _.map(nr, function(n) {
-    if (n.active) {
-      return n.amount;
+function mapNonRoutine(nonRoutine) {
+  return map(nonRoutine, (transaction) => {
+    if (transaction.active) {
+      return transaction.amount;
     }
     return 0;
   });
@@ -83,17 +81,17 @@ function mapNonRoutine(nr){
   ---------------
   Summarizes nonroutine transactions for a given date
   input(s):
-    | - nr - an object with keys "YYYY-MM-DD" containing a list of non-routine transactions
-    | - d - day to summarize
+    | - nonRoutine - an object with keys 'YYYY-MM-DD' containing a list of non-routine transactions
+    | - day - day to summarize
   output(s):
     | - values or false - list containing an array of values for the given date
 */
-function mapNonRoutineDay(nr,d){
-  d = moment(d).format(dateFormat.daily);
-  if (nr[d]) {
-    return _.map(nr[d], function(n) {
-      if (n.active) {
-        return n.amount;
+function mapNonRoutineDay(nonRoutine, day) {
+  const momentDay = moment(day).format(dateFormat.daily);
+  if (nonRoutine[momentDay]) {
+    return map(nonRoutine[momentDay], (transaction) => {
+      if (transaction.active) {
+        return transaction.amount;
       }
       return 0;
     });
@@ -107,31 +105,37 @@ function mapNonRoutineDay(nr,d){
   input(s):
   output(s):
 */
-function mapNonRoutineSet(nr){
-  return [nr, nr];
+function mapNonRoutineSet(nonRoutine) {
+  return [nonRoutine, nonRoutine];
 }
 
 /* mapNonRoutineSet
   ---------------
   Summarizes nonroutine transactions for a given date range
   input(s):
-    | - nr - an object with keys "YYYY-MM-DD" containing a list of non-routine transactions
-    | - s - start date for comparison range
-    | - e - end date for comparison range
+    | - nonRoutine - an object with keys 'YYYY-MM-DD' containing a list of non-routine transactions
+    | - start - start date for comparison range
+    | - end - end date for comparison range
   output(s):
-    | - dates & values - 2-D list containing an array of values and an array of dates that have been summarized
+    | - dates & values - 2-D list containing an array of values and an array of dates that
+        have been summarized
 */
-function mapNonRoutineRange(nr,s,e){
+function mapNonRoutineRange(nonRoutine, start, end) {
+  const dates = nonRoutine + start + end;
+  const values = 'something';
+
   return [[dates], [values]];
 }
 
 module.exports = {
-  dateFormat: dateFormat,
-  validateArg: validateArg,
-  getDailyRate: getDailyRate,
-  dateRangeCheck: dateRangeCheck,
-  mapRoutine: mapRoutine,
-  mapNonRoutine: mapNonRoutine,
-  mapNonRoutineDay: mapNonRoutineDay,
-  logger: logger
+  dateFormat,
+  validateArg,
+  getDailyRate,
+  dateRangeCheck,
+  mapRoutine,
+  mapNonRoutine,
+  mapNonRoutineDay,
+  mapNonRoutineSet,
+  mapNonRoutineRange,
+  logger,
 };
