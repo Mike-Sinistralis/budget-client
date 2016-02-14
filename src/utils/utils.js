@@ -4,7 +4,7 @@
   1. sumRoutine - Sums
 */
 
-var _ = require('underscore');
+var _ = require('lodash');
 var moment = require('moment');
 require('moment-range');
 

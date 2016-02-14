@@ -4,7 +4,7 @@
   1. sumRoutine - Sums
 */
 
-var _ = require('underscore');
+var _ = require('lodash');
 var moment = require('moment');
 var utils = require('./utils');
 var dateFormat = utils.dateFormat;

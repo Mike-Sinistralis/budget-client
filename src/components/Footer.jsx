@@ -1,13 +1,10 @@
-// Footer.jsx
-'use babel';
-
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 import { githubClientUrl } from "../utils/constants";
 
 /* Stylesheets */
-import FooterStyle from '../css/FooterStyle.css';
+import FooterStyle from '../scss/FooterStyle';
 
 // Need to convert to sticky footer
 class Footer extends React.Component {

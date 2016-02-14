@@ -1,31 +1,62 @@
-var path = require('path');
-var node_modules_dir = path.resolve(__dirname, 'node_modules');
+var webpack = require('webpack');
 
-var config = {
-  entry: path.resolve(__dirname, 'src/index.jsx'),
+module.exports = {
+  entry: [
+    'babel-polyfill',
+    './src/index.jsx'
+  ],
   output: {
-    path: path.resolve(__dirname, 'prod'),
+    path: __dirname + '/dist',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   module: {
-    loaders: [{
-      test: /\.jsx$/,
-      exclude: [node_modules_dir],
-      loader: 'babel'
-    },
-    {
-      test: /\.js$/,
-      exclude: [node_modules_dir],
-      loader: 'babel'
-    },
-    {
-    test: /\.css$/,
-    loader: "style-loader!css-loader"
-  }]
+    loaders:
+      [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'react-hot!babel',
+        },
+        {
+          test: /\.scss$/,
+          exclude: /node_modules/,
+          loaders: ['style', 'css', 'sass'],
+        },
+        {
+          test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+          exclude: /node_modules/,
+          loader: 'file',
+        },
+        {
+          test: /\.(png|jpg)$/,
+          exclude: /node_modules/,
+          loader: 'url-loader?limit=100',
+        }
+      ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.scss', '.png', '.jpg'],
   },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true,
+        drop_console: true
+      }
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production'),
+      }
+    })
+  ]
 };
-
-module.exports = config;

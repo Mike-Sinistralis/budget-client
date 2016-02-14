@@ -7,3 +7,7 @@ dist/bundle.js.map
 *.csv
 node_modules
 src/utils/csv-to-json
+npm-debug.log
+.idea
+*.iml
+coverage

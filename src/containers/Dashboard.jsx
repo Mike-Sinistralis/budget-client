@@ -13,7 +13,7 @@ import NonroutineSpend from '../components/NonroutineSpend';
 import RoutineSpend from '../components/RoutineSpend';
 
 /* Stylesheets */
-import { DashboardStyle } from '../css/DashboardStyle.css';
+import { DashboardStyle } from '../scss/DashboardStyle';
 
 var alert = {
   msg: "Under Development",

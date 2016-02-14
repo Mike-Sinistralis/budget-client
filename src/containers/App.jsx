@@ -5,7 +5,7 @@ import Nav from '../components/Navigation';
 import Footer from '../components/Footer';
 
 /* stylesheets */
-import { AppStyle } from '../css/AppStyle.css';
+import { AppStyle } from '../scss/AppStyle';
 
 export default React.createClass({
   render: function() {
