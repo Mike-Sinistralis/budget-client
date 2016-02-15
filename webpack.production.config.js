@@ -6,7 +6,7 @@ module.exports = {
     './src/index.jsx'
   ],
   output: {
-    path: __dirname + '/dist',
+    path: `${__dirname}/prod`,
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -16,7 +16,7 @@ module.exports = {
         {
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: 'react-hot!babel',
+          loader: 'babel',
         },
         {
           test: /\.scss$/,
