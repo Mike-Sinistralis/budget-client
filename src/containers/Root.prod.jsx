@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import AppContainer from './App';
+import Routes from '../components/routes';
 
 class Root extends Component
 {
@@ -11,7 +11,7 @@ class Root extends Component
     return (
       <Provider store={store}>
         <div>
-          <AppContainer />
+          <Routes />
         </div>
       </Provider>
     );

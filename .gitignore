@@ -2,12 +2,11 @@
 *bundle.js
 dist/**
 !dist/index.html
+prod/**
+!prod/index.html
 *.env
-*tests.js
-*tests.jsx
 *.csv
 node_modules
-src/utils/csv-to-json
 npm-debug.log
 .idea
 *.iml
