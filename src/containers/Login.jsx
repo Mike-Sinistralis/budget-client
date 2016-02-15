@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Login from '../Components/Login';
+import Login from '../components/Login';
 import { mapAllStateToProps } from '../utils/mapStateToProps';
 
 const LoginContainer = connect(

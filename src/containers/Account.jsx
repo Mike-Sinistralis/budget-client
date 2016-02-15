@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Account from '../Components/Account';
+import Account from '../components/Account';
 import { mapAllStateToProps } from '../utils/mapStateToProps';
 
 const AccountContainer = connect(
