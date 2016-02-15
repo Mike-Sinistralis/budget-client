@@ -27,7 +27,8 @@ function Dashboard({ budget }) {
         <DailySpend
           netToday={budget.netToday}
           nonroutineToday={budget.nonroutineToday}
-          routineToday={budget.routineToday} />
+          routineToday={budget.routineToday}
+        />
       </Row>
       <Row className="budgetChart">
         <BudgetChart />

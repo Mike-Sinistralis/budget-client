@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Grid, Row, Col, Button, Image } from 'react-bootstrap';
+import { Grid, Row, Col, Image } from 'react-bootstrap';
 
 /* Components */
 import PageAlert from './PageAlert';
@@ -8,7 +8,7 @@ import Welcome from './Welcome';
 /* Stylesheets */
 import '../scss/LandingStyle';
 
-var alert = false;
+const alert = false;
 
 function Landing({ user }) {
   return (
@@ -24,14 +24,47 @@ function Landing({ user }) {
         </Row>
         <Row className="why-row">
           <Col xs={0} md={3}/>
-          <Col xs={12} md={2}><Image className="landing-why-img" src="./img/calculator-money.png" rounded responsive />
-            <p><strong>Step 1. </strong>Calculate</p>
+          <Col xs={12} md={2}>
+            <Image
+              className="landing-why-img"
+              src="./img/calculator-money.png"
+              rounded
+              responsive
+            />
+            <p>
+              <strong>
+                Step 1.
+              </strong>
+              Calculate
+            </p>
           </Col>
-          <Col xs={12} md={2}><Image className="landing-why-img" src="./img/pie-chart.png" rounded responsive />
-            <p><strong>Step 2. </strong> ...</p>
+          <Col xs={12} md={2}>
+            <Image
+              className="landing-why-img"
+              src="./img/pie-chart.png"
+              rounded
+              responsive
+            />
+            <p>
+              <strong>
+                Step 2.
+              </strong>
+              ...
+            </p>
           </Col>
-          <Col xs={12} md={2}><Image className="landing-why-img" src="./img/dollar-bills.png" rounded responsive />
-            <p><strong>Step 3. </strong> Profit!</p>
+          <Col xs={12} md={2}>
+            <Image
+              className="landing-why-img"
+              src="./img/dollar-bills.png"
+              rounded
+              responsive
+            />
+            <p>
+              <strong>
+                Step 3.
+              </strong>
+              Profit!
+            </p>
           </Col>
           <Col xs={0} md={3}/>
         </Row>

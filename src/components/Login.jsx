@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Input, ButtonInput, Grid, Row, Col } from 'react-bootstrap';
-import FacebookLogin from './login/Facebook';
 
 /* Components */
 import PageAlert from './PageAlert';
@@ -15,7 +14,7 @@ const alert = {
   sev: 'warning',
 };
 
-//TODO: Convert to actionCreator
+// TODO: Convert to actionCreator
 function loginAction() {
   console.log('This is a mock login.');
   /*
@@ -51,7 +50,6 @@ function Login() {
             <Link to="/dashboard">
               <ButtonInput type="submit" value="Login" onClick={loginAction}/>
             </Link>
-            <FacebookLogin />
           </form>
         </Col>
         <Col xs={3} md={4} />

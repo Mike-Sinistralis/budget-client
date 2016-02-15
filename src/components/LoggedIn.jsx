@@ -12,9 +12,8 @@ import { Nav, NavItem, Image } from 'react-bootstrap';
 /* Stylesheets */
 import '../scss/NavbarStyle';
 
-function logoutUser()
-{
-  //TODO: Turn into actionCreator
+function logoutUser() {
+  // TODO: Turn into actionCreator
 }
 
 function LoggedIn({ user }) {
@@ -36,15 +35,15 @@ function LoggedIn({ user }) {
         </NavItem>
       </Nav>
     );
-  } else {
-    return (
-      <Nav pullRight>
-        <NavItem className="navbar-text-special=" eventKey={2} href="#/login">
-          <p className="navbar-text-special">Login</p>
-        </NavItem>
-      </Nav>
-    );
   }
+
+  return (
+    <Nav pullRight>
+      <NavItem className="navbar-text-special=" eventKey={2} href="#/login">
+        <p className="navbar-text-special">Login</p>
+      </NavItem>
+    </Nav>
+  );
 }
 
 LoggedIn.propTypes = {
