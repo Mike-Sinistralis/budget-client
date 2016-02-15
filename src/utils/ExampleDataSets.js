@@ -5,7 +5,7 @@ import faker from 'faker';
 
 import { dateFormat } from './utils';
 
-const day = moment().format(dateFormat.daily);
+const currentDay = moment().format(dateFormat.daily);
 
 /* FAKER PROFILE - Seeding new values */
 const profile = faker.helpers.createCard();
@@ -43,25 +43,25 @@ const budget1 = {
     // Randomly generated via createRoutine
   ],
   nonroutine: {
-    //Randomly generated via createNonRoutine
+    // Randomly generated via createNonRoutine
   },
 };
 
 
 /* Helper functions for creating transactions */
-function createCreditR(d) {
+function createCreditR(day) {
   const id = uuid.v4();
   const t = faker.helpers.createTransaction();
 
   return immutableMap({
-    id: id,
+    id,
     name: t.business,
     description: t.name,
     type: t.type,
     active: true,
-    createdOn: moment(d),
-    startOn: d,
-    endOn: moment(d).add(1, 'Y'),
+    createdOn: moment(day),
+    startOn: day,
+    endOn: moment(day).add(1, 'Y'),
     duration: '1 Year',
     amount: Number(t.amount),
     frequency: 2,
@@ -70,19 +70,19 @@ function createCreditR(d) {
   });
 }
 
-function createRoutine(d) {
+function createRoutine(day) {
   const id = uuid.v4();
   const t = faker.helpers.createTransaction();
 
   return immutableMap({
-    id: id,
+    id,
     name: t.business,
     description: t.name,
     type: t.type,
     active: true,
-    createdOn: moment(d),
-    startOn: d,
-    endOn: moment(d).add(1, 'Y'),
+    createdOn: moment(day),
+    startOn: day,
+    endOn: moment(day).add(1, 'Y'),
     duration: '1 Year',
     amount: Number(t.amount),
     frequency: Math.floor((Math.random() * 4) + 1),
@@ -91,42 +91,42 @@ function createRoutine(d) {
   });
 }
 
-function createNonRoutine(d) {
+function createNonRoutine(day) {
   const id = uuid.v4();
-  const t  = faker.helpers.createTransaction();
+  const t = faker.helpers.createTransaction();
   let amount = Math.floor((Math.random() * 100));
   if (amount % 2 === 0) {amount = amount * -1;}
   return {
-    id: id,
+    id,
     name: t.business,
     description: t.name,
     type: t.type,
     active: true,
-    createdOn: moment(d),
-    startOn: d,
+    createdOn: moment(day),
+    startOn: day,
     amount: Number(t.amount),
     accounting: 'debit',
   };
 }
 
 /* Generate random transactions */
-budget1.nonroutine[day] = [];
-budget1.nonroutine[day].push(createNonRoutine(day));
-budget1.routine.push(createRoutine(day));
+budget1.nonroutine[currentDay] = [];
+budget1.nonroutine[currentDay].push(createNonRoutine(currentDay));
+budget1.routine.push(createRoutine(currentDay));
 
-for (let i = 0; i < Math.floor(Math.random()*15+1); i++) {
-  budget1.nonroutine[day].push(createNonRoutine(day));
+for (let i = 0; i < Math.floor(Math.random() * 15 + 1); i++) {
+  budget1.nonroutine[currentDay].push(createNonRoutine(currentDay));
 }
 
-for (let i = 0; i < Math.floor(Math.random()*10+1); i++) {
-  budget1.routine.push(createRoutine(day));
+for (let i = 0; i < Math.floor(Math.random() * 10 + 1); i++) {
+  budget1.routine.push(createRoutine(currentDay));
 }
 
 /* OUTPUT: EXAMPLE STORE OBJECT */
-var exampleStore = fromJS({
-  user: user,
-  errors: errors,
-  budget: budget1
+const exampleStore = fromJS({
+  user,
+  errors,
+  budget: budget1,
 });
 
 console.log('New exampleStore created.');
@@ -134,6 +134,7 @@ console.log('New exampleStore created.');
 module.exports = {
   budget1,
   budget1Day,
+  createCreditR,
   createRoutine,
   createNonRoutine,
   exampleStore,

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Input, ButtonInput, Grid, Row, Col } from 'react-bootstrap';
-import { store } from '../store';
 import FacebookLogin from './login/Facebook';
 
 /* Components */
@@ -19,17 +18,21 @@ var alert = {
 //TODO: Convert to actionCreator
 function loginAction() {
   console.log("This is a mock login.");
+  /*
+  TODO: Login Action Creator
+
   store.dispatch({
-    type: "LOGIN_USER",
-    user: {
-      id: 240120401,
-      name: "barric.reed",
-      firstName: "Barric",
-      lastName: "Reed",
-      isAuthenticated: true,
-      isLoggedIn: true
-    }
+   type: "LOGIN_USER",
+   user: {
+     id: 240120401,
+     name: "barric.reed",
+     firstName: "Barric",
+     lastName: "Reed",
+     isAuthenticated: true,
+     isLoggedIn: true
+   }
   });
+ */
 }
 
 // Stackoverflow has a good method for login buttons

@@ -11,16 +11,13 @@ import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, Image, Grid, Row, Col } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { mapAllStateToProps } from '../utils/mapStateToProps';
-import { store } from '../store';
 
 /* Stylesheets */
 import NavbarStyle from '../scss/NavbarStyle';
 
 const Navigation = React.createClass({
   logoutUser: function(event){
-    store.dispatch({
-      type: "LOGOUT_USER"
-    });
+    //TODO: Logout Action Creator
   },
   loggedIn: function() {
     if (this.props.user.get('isAuthenticated')){

@@ -19,8 +19,7 @@ const panelTitle = (
   </div>
 );
 
-function DailySpend() {
-  const { netToday, nonroutineToday, routineToday } = this.props;
+function DailySpend({ netToday, nonroutineToday, routineToday }) {
   return (
     <Panel header={panelTitle}>
       <Grid fluid={true}>
@@ -33,9 +32,9 @@ function DailySpend() {
 }
 
 DailySpend.propTypes = {
-  netToday: PropTypes.string,
-  nonroutineToday: PropTypes.string,
-  routineToday: PropTypes.string,
+  netToday: PropTypes.number,
+  nonroutineToday: PropTypes.number,
+  routineToday: PropTypes.number,
 };
 
 export default DailySpend;
