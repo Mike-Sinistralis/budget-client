@@ -22,10 +22,25 @@ const panelTitle = (
 function DailySpend({ netToday, nonroutineToday, routineToday }) {
   return (
     <Panel header={panelTitle}>
-      <Grid fluid={true}>
-        <Row><h2>Net: <font style={getDollarColor(netToday.toFixed(2))}>${netToday.toFixed(2).replace("-","")}</font></h2></Row>
-        <Row>Today: <font style={getDollarColor(nonroutineToday)}>${nonroutineToday.toFixed(2).replace("-","")}</font> |
-          Routine: <font style={getDollarColor(routineToday)}>${routineToday.toFixed(2).replace("-","")}</font></Row>
+      <Grid fluid >
+        <Row>
+          <h2>
+            Net:
+            <font style={getDollarColor(netToday.toFixed(2))}>
+              ${netToday.toFixed(2).replace('-', '')}
+            </font>
+          </h2>
+        </Row>
+        <Row>
+          Today:
+          <font style={getDollarColor(nonroutineToday)}>
+            ${nonroutineToday.toFixed(2).replace('-', '')}
+          </font> |
+          Routine:
+          <font style={getDollarColor(routineToday)}>
+            ${routineToday.toFixed(2).replace('-', '')}
+          </font>
+        </Row>
       </Grid>
     </Panel>
   );

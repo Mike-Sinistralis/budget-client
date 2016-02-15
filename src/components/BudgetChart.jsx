@@ -15,7 +15,7 @@ const barData = [
       { x: 1, y: 91 },
       { x: 2, y: 123 },
       { x: 3, y: 20 },
-    ]
+    ],
   },
   {
     name: 'Today',
@@ -23,8 +23,8 @@ const barData = [
       { x: 1, y: 91 },
       { x: 2, y: 123 },
       { x: 3, y: 20 },
-    ]
-  }
+    ],
+  },
 ];
 
 function BudgetChart() {

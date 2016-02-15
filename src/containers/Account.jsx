@@ -8,4 +8,3 @@ const AccountContainer = connect(
 )(Account);
 
 export default AccountContainer;
-

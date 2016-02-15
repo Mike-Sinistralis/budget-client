@@ -1,15 +1,10 @@
 import { connect } from 'react-redux';
 
 import App from '../Components/App';
-
-function mapStateToProps(state) {
-  return {
-
-  };
-}
+import { mapAllStateToProps } from '../utils/mapStateToProps';
 
 const AppContainer = connect(
-  mapStateToProps
+  mapAllStateToProps
 )(App);
 
 export default AppContainer;

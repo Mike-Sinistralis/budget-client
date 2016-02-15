@@ -7,10 +7,10 @@ import Footer from '../components/Footer';
 /* stylesheets */
 import '../scss/AppStyle';
 
-function App({ children }) {
+function App({ user, children }) {
   return (
     <div className="app">
-      <Nav />
+      <Nav user={user} />
       <div className="main">{children}</div>
       <Footer />
     </div>

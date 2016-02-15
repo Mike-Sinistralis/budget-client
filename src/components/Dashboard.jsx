@@ -20,11 +20,24 @@ const alert = {
 function Dashboard({ budget }) {
   return (
     <Grid className="dashboard-grid text-center" fluid={false}>
-      <Row className="alertRow"><PageAlert alert={alert} /></Row>
-      <Row className="dailySpend"><DailySpend netToday={budget.netToday} nonroutineToday = {budget.nonroutineToday} routineToday={budget.routineToday} /></Row>
-      <Row className="budgetChart"><BudgetChart /></Row>
-      <Row className="nonroutineSpend text-left"><NonroutineSpend nonroutine={budget.nonroutine} today={budget.today}/></Row>
-      <Row className="routineSpend text-left"><RoutineSpend routine={budget.routine} /></Row>
+      <Row className="alertRow">
+        <PageAlert alert={alert} />
+      </Row>
+      <Row className="dailySpend">
+        <DailySpend
+          netToday={budget.netToday}
+          nonroutineToday={budget.nonroutineToday}
+          routineToday={budget.routineToday} />
+      </Row>
+      <Row className="budgetChart">
+        <BudgetChart />
+      </Row>
+      <Row className="nonroutineSpend text-left">
+        <NonroutineSpend nonroutine={budget.nonroutine} today={budget.today}/>
+      </Row>
+      <Row className="routineSpend text-left">
+        <RoutineSpend routine={budget.routine} />
+      </Row>
     </Grid>
   );
 }
