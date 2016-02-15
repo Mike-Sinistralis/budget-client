@@ -1,1 +1,1 @@
-export const githubClientUrl = "https://github.com/Sinistralis/budget-client";
+export const githubClientUrl = 'https://github.com/Sinistralis/budget-client';

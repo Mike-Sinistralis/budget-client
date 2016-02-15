@@ -1,9 +1,7 @@
-// mapStateToProps.js
+import moment from 'moment';
 
-var moment = require('moment');
-var bM = require('./budgetMath');
-var utils = require('./utils');
-var dateFormat = utils.dateFormat;
+import bM from './budgetMath';
+import { dateFormat } from './utils';
 
 function mapUserStatetoProps(state) {
   return {
@@ -19,20 +17,20 @@ function mapUserStatetoProps(state) {
     company: state.get('company'),
     imageUrl: state.get('imageUrl'),
     isAuthenticated: state.get('isAuthenticated'),
-    isLoggedIn: state.get('isLoggedIn')
+    isLoggedIn: state.get('isLoggedIn'),
   };
 }
 
-function mapErrorsStatetoProps(state) {
+function mapErrorsStatetoProps() {
   return {
-    hasErrors: false
+    hasErrors: false,
   };
 }
 
 function mapBudgetStateToProps(state) {
-  var d = moment().format(dateFormat.daily);
+  const day = moment().format(dateFormat.daily);
   return {
-    today: d,
+    today: day,
     user: state.get('user'),
     name: state.get('name'),
     description: state.get('description'),
@@ -41,23 +39,23 @@ function mapBudgetStateToProps(state) {
     routine: state.get('routine'),
     nonroutine: state.get('nonroutine'),
     // Pre-calculated rates. These shouldn't live here
-    routineToday: bM.routineDaily(state.get('routine').toJS(), d) || 0,
-    nonroutineToday: bM.nonroutineDaily(state.get('nonroutine').toJS(), d) || 0,
-    netToday: bM.netDaily(state.get('routine').toJS(), state.get('nonroutine').toJS(), d) || 0,
+    routineToday: bM.routineDaily(state.get('routine').toJS(), day) || 0,
+    nonroutineToday: bM.nonroutineDaily(state.get('nonroutine').toJS(), day) || 0,
+    netToday: bM.netDaily(state.get('routine').toJS(), state.get('nonroutine').toJS(), day) || 0,
   };
 }
 
 function mapAllStateToProps(state) {
-    return {
-      user: mapUserStatetoProps(state.get('user')),
-      budget: mapBudgetStateToProps(state.get('budget')),
-      errors: mapErrorsStatetoProps(state.get('errors'))
-    };
+  return {
+    user: state.get('user'),
+    budget: mapBudgetStateToProps(state.get('budget')),
+    errors: mapErrorsStatetoProps(state.get('errors')),
+  };
 }
 
 module.exports = {
   mapUserStatetoProps,
   mapErrorsStatetoProps,
   mapBudgetStateToProps,
-  mapAllStateToProps: mapAllStateToProps
+  mapAllStateToProps,
 };

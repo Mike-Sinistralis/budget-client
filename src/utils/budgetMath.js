@@ -1,29 +1,27 @@
 /* Maths required to operate on budget objects
   ---------------
-  Note: Currently not using ES6 to make imports easier during dev
   1. sumRoutine - Sums
 */
 
-var _ = require('lodash');
-var moment = require('moment');
-var utils = require('./utils');
-var dateFormat = utils.dateFormat;
+import { reduce } from 'lodash';
+
+import { mapRoutine, mapNonRoutineDay } from './utils';
 
 /* Daily Sum Calculations */
-function routineDaily(routine, day){
-  return _.reduce(utils.mapRoutine(routine, day), function(m,n) { return m+n; } );
+function routineDaily(routine, day) {
+  return reduce(mapRoutine(routine, day), (m, n) => m + n, 0);
 }
 
-function nonroutineDaily(nonroutine, day){
-  return _.reduce(utils.mapNonRoutineDay(nonroutine, day), function(m,n) { return m+n; } );
+function nonroutineDaily(nonRoutine, day) {
+  return reduce(mapNonRoutineDay(nonRoutine, day), (m, n) => m + n, 0);
 }
 
-function netDaily(r,nr,d){
-  return (routineDaily(r,d) || 0) + (nonroutineDaily(nr,d) || 0);
+function netDaily(routine, nonRoutine, day) {
+  return routineDaily(routine, day) + nonroutineDaily(nonRoutine, day);
 }
 
 module.exports = {
-  routineDaily: routineDaily,
-  nonroutineDaily: nonroutineDaily,
-  netDaily: netDaily
+  routineDaily,
+  nonroutineDaily,
+  netDaily,
 };
