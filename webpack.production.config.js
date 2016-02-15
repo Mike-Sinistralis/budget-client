@@ -20,17 +20,14 @@ module.exports = {
         },
         {
           test: /\.scss$/,
-          exclude: /node_modules/,
           loaders: ['style', 'css', 'sass'],
         },
         {
           test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-          exclude: /node_modules/,
           loader: 'file',
         },
         {
           test: /\.(png|jpg)$/,
-          exclude: /node_modules/,
           loader: 'url-loader?limit=100',
         }
       ]
