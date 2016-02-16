@@ -4,6 +4,7 @@ dist/**
 !dist/index.html
 prod/**
 !prod/index.html
+!prod/CORS*
 *.env
 *.csv
 node_modules
