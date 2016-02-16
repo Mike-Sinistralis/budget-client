@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Landing from '../Components/Landing';
+import Landing from '../components/Landing';
 import { mapAllStateToProps } from '../utils/mapStateToProps';
 
 const LandingContainer = connect(

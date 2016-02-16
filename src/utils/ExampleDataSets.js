@@ -49,27 +49,6 @@ const budget1 = {
 
 
 /* Helper functions for creating transactions */
-function createCreditR(day) {
-  const id = uuid.v4();
-  const t = faker.helpers.createTransaction();
-
-  return immutableMap({
-    id,
-    name: t.business,
-    description: t.name,
-    type: t.type,
-    active: true,
-    createdOn: moment(day),
-    startOn: day,
-    endOn: moment(day).add(1, 'Y'),
-    duration: '1 Year',
-    amount: Number(t.amount),
-    frequency: 2,
-    frequencyDescription: '2x Month: 2*amount / # days in month',
-    accounting: 'credit',
-  });
-}
-
 function createRoutine(day) {
   const id = uuid.v4();
   const t = faker.helpers.createTransaction();
@@ -134,7 +113,6 @@ console.log('New exampleStore created.');
 module.exports = {
   budget1,
   budget1Day,
-  createCreditR,
   createRoutine,
   createNonRoutine,
   exampleStore,
