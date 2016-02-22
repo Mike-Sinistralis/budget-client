@@ -6,8 +6,8 @@
   "scripts": {
     "test": "npm run lint && karma start",
     "test:watch": "npm run test -- --watch",
-    "lint": "eslint --ext .js --ext .jsx ./",
-    "lint:fix": "eslint --ext .js --ext .jsx src",
+    "lint": "eslint --ext .js --ext .js ./",
+    "lint:fix": "eslint --ext .js --ext .js --fix ./",
     "dev": "webpack-dev-server --port 8010",
     "build": "webpack --config webpack.production.config.js",
     "build:surge": "webpack --config webpack.production.config.js && surge ./prod --domain andcounting.surge.sh"
