@@ -20,12 +20,8 @@ module.exports = {
           loaders: ['style', 'css', 'sass'],
         },
         {
-          test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+          test: /\.woff2?$|\.ttf$|\.eot$|\.svg$|\.(png|jpg)$/,
           loader: 'file',
-        },
-        {
-          test: /\.(png|jpg)$/,
-          loader: 'url-loader?limit=100',
         },
         {
           test: /\.json?$/,
